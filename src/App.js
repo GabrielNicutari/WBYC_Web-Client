@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Ingredientlist from "./components/ingredient-list/ingredient-list.component";
+import RecipeList from "./components/recipe-list/recipe-list.component";
+
+class App extends Component {
+    constructor() {
+        super();
+
+        this.state = {
+            currentUser: null
+        }
+    }
+
+    render() {
+        console.log(process.env.REACT_APP_NAME);
+        return (
+            <div>
+                <Switch>
+                    <Route path={"/ingredients"} component={Ingredientlist} />
+                    <Route path={"/recipes"} component={RecipeList} />
+                </Switch>
+            </div>
+        );
+    }
 }
 
 export default App;
