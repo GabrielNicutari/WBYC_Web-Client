@@ -4,9 +4,7 @@ import IngredientsService from "../../services/ingredients.service";
 class IngredientList extends Component {
     constructor(props) {
         super(props);
-
-        // this.fetchIngredients = this.fetchIngredients.bind(this);
-
+        
         this.state = {
             ingredients: [],
             currentPage: 1,
@@ -16,16 +14,17 @@ class IngredientList extends Component {
     }
 
     componentDidMount() {
-        this.fetchIngredients();
+        this.fetchAll();
     }
 
-    fetchIngredients() {
+    fetchAll() {
         IngredientsService.getAll()
             .then(response => {
 
                 console.log(response.data);
-                this.setState({ingredients: response.data});
-                // console.log(this.state.ingredients);
+                this.setState({totalPages: response.data.totalPages});
+                this.setState({totalItems: response.data.totalItems});
+                this.setState({ingredients: response.data.ingredients});
             })
             .catch(e => {
                 console.log(e);
@@ -33,14 +32,14 @@ class IngredientList extends Component {
     }
 
     render() {
-        const { ingredients } = this.state.ingredients;
+        const { ingredients } = this.state;
 
         return (
             <div>
                 <ul className="list-group">
                     {ingredients && ingredients.map((ingredient, index) => (
                         <li key={index}>
-                            {ingredient}
+                            {ingredient.name}
                         </li>
                     ))}
                 </ul>

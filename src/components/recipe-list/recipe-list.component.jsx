@@ -22,8 +22,8 @@ class RecipeList extends Component {
             .then(response => {
                 console.log(response.data);
 
-                this.setState({totalPages: response.data.totalPages})
-                this.setState({totalItems: response.data.totalItems})
+                this.setState({totalPages: response.data.totalPages});
+                this.setState({totalItems: response.data.totalItems});
                 this.setState({recipes: response.data.recipes});
             })
             .catch(e => {
