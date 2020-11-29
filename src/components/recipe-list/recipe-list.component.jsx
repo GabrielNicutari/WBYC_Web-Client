@@ -37,7 +37,7 @@ class RecipeList extends Component {
         return (
             <div>
                 <ul className="list-group">
-                    {recipes && recipes.map((recipe, index) => (
+                    {recipes.map((recipe, index) => (
                         <li key={index}>
                             {recipe.id + " " + recipe.name}
                         </li>

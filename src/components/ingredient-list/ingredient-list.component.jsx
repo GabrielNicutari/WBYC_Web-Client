@@ -20,8 +20,8 @@ class IngredientList extends Component {
     fetchAll() {
         IngredientsService.getAll()
             .then(response => {
-
                 console.log(response.data);
+
                 this.setState({totalPages: response.data.totalPages});
                 this.setState({totalItems: response.data.totalItems});
                 this.setState({ingredients: response.data.ingredients});
@@ -37,9 +37,9 @@ class IngredientList extends Component {
         return (
             <div>
                 <ul className="list-group">
-                    {ingredients && ingredients.map((ingredient, index) => (
+                    {ingredients.map((ingredient, index) => (
                         <li key={index}>
-                            {ingredient.name}
+                            {ingredient.id + " " + ingredient.name}
                         </li>
                     ))}
                 </ul>
