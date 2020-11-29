@@ -19,7 +19,7 @@ class App extends Component {
         return (
             <div>
                 <Switch>
-                    <Route path={"/ingredients"} component={Ingredientlist} />
+                    <Route exact path={"/ingredients"} component={Ingredientlist} />
                     <Route path={"/recipes"} component={RecipeList} />
                 </Switch>
             </div>
