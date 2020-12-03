@@ -1,51 +1,20 @@
-import React, {Component} from 'react';
-import http from "../../services/http.service";
+import React from 'react';
 
-class RecipeList extends Component {
-    constructor(props) {
-        super(props);
+import RecipeItem from "../recipe-item/recipe-item.component";
 
-        this.state = {
-            recipes: [],
-            currentPage: 0,
-            totalPages: null,
-            totalItems: null
-        }
-    }
+import './recipe-list.styles.scss';
 
-    componentDidMount() {
-        this.fetchAll(this.state.currentPage);
-    }
-
-    fetchAll(currentPage) {
-        http.get("recipes?page=" + currentPage)
-            .then(response => {
-                console.log(response.data);
-
-                this.setState({totalPages: response.data.totalPages});
-                this.setState({totalItems: response.data.totalItems});
-                this.setState({recipes: response.data.recipes});
-            })
-            .catch(e => {
-                console.log(e);
-            })
-    }
-
-    render() {
-        const { recipes } = this.state;
-
-        return (
-            <div>
-                <ul className="list-group">
-                    {recipes.map((recipe, index) => (
-                        <li key={index}>
-                            {recipe.id + " - " + recipe.name}
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        );
-    }
-}
+const RecipeList = (props) => (
+    <div className='recipe-list'>
+        {/*<h1 className='title'>{title.toUpperCase()}</h1>*/}
+        <div className='preview'>
+            {
+                props.recipes.map(({id, ...otherRecipeProps}) => (
+                    <RecipeItem key={id} {...otherRecipeProps}/>
+                ))
+            }
+        </div>
+    </div>
+)
 
 export default RecipeList;
