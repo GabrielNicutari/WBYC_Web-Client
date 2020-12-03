@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import RecipesService from "../../services/recipes.service";
+import http from "../../services/http.service";
 
 class RecipeList extends Component {
     constructor(props) {
@@ -7,18 +7,18 @@ class RecipeList extends Component {
 
         this.state = {
             recipes: [],
-            currentPage: 1,
+            currentPage: 0,
             totalPages: null,
             totalItems: null
         }
     }
 
     componentDidMount() {
-        this.fetchAll();
+        this.fetchAll(this.state.currentPage);
     }
 
-    fetchAll() {
-        RecipesService.getAll()
+    fetchAll(currentPage) {
+        http.get("recipes?page=" + currentPage)
             .then(response => {
                 console.log(response.data);
 
@@ -39,7 +39,7 @@ class RecipeList extends Component {
                 <ul className="list-group">
                     {recipes.map((recipe, index) => (
                         <li key={index}>
-                            {recipe.id + " " + recipe.name}
+                            {recipe.id + " - " + recipe.name}
                         </li>
                     ))}
                 </ul>
