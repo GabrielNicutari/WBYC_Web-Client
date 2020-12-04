@@ -9,7 +9,8 @@ const RecipeList = (props) => (
         <h1 className='title'>RECIPES</h1>
         <div className='preview'>
             {
-                props.recipes.map(({id, ...otherRecipeProps}) => (
+                props.recipes
+                    .map(({id, ...otherRecipeProps}) => (
                     <RecipeItem key={id} {...otherRecipeProps}/>
                 ))
             }

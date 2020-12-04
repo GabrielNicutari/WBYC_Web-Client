@@ -1,16 +1,18 @@
 .recipe-list {
-  display: block;
-  flex-direction: column;
-  margin: 0 auto;
-  max-width: 1600px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: calc(100% + 1rem);
 
   .title {
     font-size: 28px;
     margin-bottom: 25px;
+    width: 100%;
   }
 
   .preview {
-    display: flex;
+    display: contents;
     justify-content: space-between;
+
   }
 }

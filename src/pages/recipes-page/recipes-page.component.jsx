@@ -3,6 +3,8 @@ import React, {Component} from 'react';
 import http from "../../services/http.service";
 import RecipeList from "../../components/recipe-list/recipe-list.component";
 
+import './recipes-page.styles.scss'
+
 class RecipesPage extends Component {
     constructor(props) {
         super(props);
@@ -37,19 +39,10 @@ class RecipesPage extends Component {
         const { recipes } = this.state;
 
         return (
-            <div className='shop-page'>
+            <div className='recipes-page'>
                 {
                     <RecipeList recipes={recipes} />
                 }
-
-                {/*<ul className="list-group">*/}
-                {/*    {recipes.map((recipe, index) => (*/}
-                {/*        // <li key={index}>*/}
-                {/*        //     {recipe.id + " - " + recipe.name}*/}
-                {/*        // </li>*/}
-                {/*        <RecipeItem key={index} />*/}
-                {/*    ))}*/}
-                {/*</ul>*/}
             </div>
         );
     }
