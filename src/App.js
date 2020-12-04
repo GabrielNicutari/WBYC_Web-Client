@@ -6,6 +6,7 @@ import Ingredientlist from "./components/ingredient-list/ingredient-list.compone
 import CreateRecipe from "./components/recipe-create/recipe-create.component";
 
 import RecipesPage from "./pages/recipes-page/recipes-page.component";
+import Header from "./components/header/header.component";
 
 class App extends Component {
     constructor() {
@@ -21,6 +22,7 @@ class App extends Component {
         console.log(process.env.REACT_APP_API_URL);
         return (
             <div>
+                <Header />
                 <Switch>
                     <Route exact path={"/ingredients"} component={Ingredientlist} />
                     <Route exact path={"/recipes"} component={RecipesPage} />
