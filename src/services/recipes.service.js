@@ -6,27 +6,27 @@ class RecipesService {
     }
 
     // get(id) {
-    //     return http.get(`/recipes/${id}`);
+    //     return http.get(`/recipe-create/${id}`);
     // }
     //
     create(data) {
-        return http.post("/recipes", data);
+        return http.post("/recipes/create", data);
     }
     //
     // update(id, data) {
-    //     return http.put(`/recipes/${id}`, data);
+    //     return http.put(`/recipe-create/${id}`, data);
     // }
     //
     // delete(id) {
-    //     return http.delete(`/recipes/${id}`);
+    //     return http.delete(`/recipe-create/${id}`);
     // }
     //
     // deleteAll() {
-    //     return http.delete(`/recipes`);
+    //     return http.delete(`/recipe-create`);
     // }
     //
     // findByTitle(title) {
-    //     return http.get(`/recipes?title=${title}`);
+    //     return http.get(`/recipe-create?title=${title}`);
     // }
 }
 

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import http from '../../services/httpService';
-import './add-recipe.style.css'
+import http from '../../services/http.service';
+import './recipe-create.styles.scss'
 import { Redirect } from 'react-router'
 
 export default class CreateRecipe extends Component {
