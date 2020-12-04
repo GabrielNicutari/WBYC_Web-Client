@@ -1,0 +1,42 @@
+.header {
+  height: 75px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 60px;
+
+  .logo-container {
+    height: 100%;
+    width: 50px;
+
+    .logo {
+      height: 85%;
+      position: relative;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .options {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-weight: bold;
+
+    .option {
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: all 0.1s ease;
+
+      &:hover {
+        cursor: pointer;
+
+        color: #FEC13E;
+        transition: all 0.2s ease;
+      }
+    }
+  }
+}

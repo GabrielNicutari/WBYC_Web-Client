@@ -40,6 +40,9 @@ class RecipesPage extends Component {
 
         return (
             <div className='recipes-page'>
+                <div className='recipes-header'>
+                    <h1 className='title'>RECIPES</h1>
+                </div>
                 {
                     <RecipeList recipes={recipes} />
                 }
