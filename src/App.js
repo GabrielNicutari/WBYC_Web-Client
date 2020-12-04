@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Ingredientlist from "./components/ingredient-list/ingredient-list.component";
 // import RecipeList from "./components/recipe-list/recipe-list.component";
+import CreateRecipe from "./components/recipes/add-recipe.component";
 
 import RecipesPage from "./pages/recipes-page/recipes-page.component";
 
@@ -24,6 +25,7 @@ class App extends Component {
                 <Switch>
                     <Route exact path={"/ingredients"} component={Ingredientlist} />
                     <Route path={"/recipes"} component={RecipesPage} />
+                    <Route path={"/recipes/create"} component={CreateRecipe}/>
                 </Switch>
             </div>
         );
