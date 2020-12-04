@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Ingredientlist from "./components/ingredient-list/ingredient-list.component";
+import IngredientList from "./components/ingredient-list/ingredient-list.component";
 import RecipeList from "./components/recipe-list/recipe-list.component";
+import CreateRecipe from "./components/recipes/add-recipe.component";
 
 class App extends Component {
     constructor() {
@@ -19,8 +20,9 @@ class App extends Component {
         return (
             <div>
                 <Switch>
-                    <Route path={"/ingredients"} component={Ingredientlist} />
-                    <Route path={"/recipes"} component={RecipeList} />
+                    <Route path={"/ingredients"} component={IngredientList} />
+                    <Route exact path={"/recipes"} component={RecipeList} />
+                    <Route path={"/recipes/create"} component={CreateRecipe}/>
                 </Switch>
             </div>
         );

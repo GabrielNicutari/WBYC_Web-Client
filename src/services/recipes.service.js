@@ -9,9 +9,9 @@ class RecipesService {
     //     return http.get(`/recipes/${id}`);
     // }
     //
-    // create(data) {
-    //     return http.post("/recipes", data);
-    // }
+    create(data) {
+        return http.post("/recipes", data);
+    }
     //
     // update(id, data) {
     //     return http.put(`/recipes/${id}`, data);
