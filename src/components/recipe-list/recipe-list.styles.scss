@@ -1,7 +1,8 @@
 .recipe-list {
-  display: flex;
+  display: block;
   flex-direction: column;
-  margin-bottom: 30px;
+  margin: 0 auto;
+  max-width: 1600px;
 
   .title {
     font-size: 28px;

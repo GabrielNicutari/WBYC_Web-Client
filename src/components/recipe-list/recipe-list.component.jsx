@@ -6,7 +6,7 @@ import './recipe-list.styles.scss';
 
 const RecipeList = (props) => (
     <div className='recipe-list'>
-        {/*<h1 className='title'>{title.toUpperCase()}</h1>*/}
+        <h1 className='title'>RECIPES</h1>
         <div className='preview'>
             {
                 props.recipes.map(({id, ...otherRecipeProps}) => (
