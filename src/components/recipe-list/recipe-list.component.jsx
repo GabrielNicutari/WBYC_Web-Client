@@ -11,7 +11,7 @@ const RecipeList = (props) => (
                 {
                     props.recipes
                         .map(({id, ...otherRecipeProps}) => (
-                            <RecipeItem key={id} {...otherRecipeProps}/>
+                            <RecipeItem key={id} id={id} {...otherRecipeProps}/>
                         ))
                 }
             </div>

@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 import './recipe-item.styles.scss';
 
 const RecipeItem = ({id, name, imageSrc, prepTime, cookTime}) => (
-    <div className='recipe-item'>
+    <Link className='recipe-item' to={"/recipes/" + id}>
         <div
             className='image'
             style={{
@@ -11,12 +12,11 @@ const RecipeItem = ({id, name, imageSrc, prepTime, cookTime}) => (
             }}
         />
         <div className='recipe-item-footer'>
-            <span className='name'>{name}</span>
+            <span className='name'>{name} {id}</span>
             <span className='prep-time'>{prepTime} min</span>
             <span className='cook-time'>| {cookTime} min</span>
         </div>
-
-    </div>
+    </Link>
 )
 
 export default RecipeItem;
