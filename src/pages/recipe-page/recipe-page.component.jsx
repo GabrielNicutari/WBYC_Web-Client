@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import http from "../../services/http.service";
+import Loading from "../../Loading";
 
 import './recipe-page.styles.scss';
 
@@ -23,6 +24,8 @@ class RecipePage extends Component {
                 recipeHasIngredientsById: []
             },
             //ingredients: []
+            loading: undefined,
+            done: undefined,
         }
     }
 
@@ -31,6 +34,9 @@ class RecipePage extends Component {
     }
 
     getRecipe(id) {
+        this.setState({loading: undefined});
+        this.setState({done: undefined});
+
         http
             .get("/recipes/" + id)
             .then((response) => {
@@ -42,6 +48,12 @@ class RecipePage extends Component {
                 // })
                 console.log(response.data);
             })
+            .then(data => {
+                this.setState({loading: true});
+                setTimeout(() => {
+                    this.setState({done: true});
+                },500)
+            })
             .catch((e) => {
                 console.log(e);
             })
@@ -49,55 +61,61 @@ class RecipePage extends Component {
 
 
     render() {
-        const { recipe } = this.state;
+        const { recipe, done, loading } = this.state;
 
         return (
             <div className='recipe-page'>
-                <div
-                    className='banner'
-                    style={{
-                        backgroundImage: `url(${recipe.imageSrc})`
-                    }}
-                />
-                <div className='title'>
+                {!done?
+                    (<Loading loading={loading} />)
+                    :
+                    (<div>
+                        <div
+                            className='banner'
+                            style={{
+                                backgroundImage: `url(${recipe.imageSrc})`
+                            }}
+                        />
+                        <div className='title'>
                     <span className='recipe-name'>
                         {recipe.name}
                     </span>
 
-                    <span className='recipe-description'>
+                            <span className='recipe-description'>
                         {recipe.description}
                     </span>
-                </div>
+                        </div>
 
-                <div className='ingredients'>
-                    <div className='ingredients-header'>
-                        Ingredients
-                    </div>
-
-                    <div className='ingredients-item'>
-                        {recipe.recipeHasIngredientsById.map((ingredientById) => (
-                            <div key={ingredientById.id}>
-                                <span>{ingredientById.unitSize} </span>
-
-                                {ingredientById.ingredientsByIngredientId.measurementUnitByMeasurementUnitId.type === "ammount" ?
-                                    ' ' : <span>{ingredientById.ingredientsByIngredientId.measurementUnitByMeasurementUnitId.type} </span>
-                                }
-
-                                <span>{ingredientById.ingredientsByIngredientId.name} </span>
+                        <div className='ingredients'>
+                            <div className='ingredients-header'>
+                                Ingredients
                             </div>
-                        ))}
-                    </div>
-                </div>
 
-                <div className='instructions'>
-                    <div className='instructions-header'>
-                        Instructions
-                    </div>
+                            <div className='ingredients-item'>
+                                {recipe.recipeHasIngredientsById.map((ingredientById) => (
+                                    <div key={ingredientById.id}>
+                                        <span>{ingredientById.unitSize} </span>
 
-                    <div className='instructions-item'>
-                        {recipe.instructions}
-                    </div>
-                </div>
+                                        {ingredientById.ingredientsByIngredientId.measurementUnitByMeasurementUnitId.type === "ammount" ?
+                                            ' ' : <span>{ingredientById.ingredientsByIngredientId.measurementUnitByMeasurementUnitId.type} </span>
+                                        }
+
+                                        <span>{ingredientById.ingredientsByIngredientId.name} </span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className='instructions'>
+                            <div className='instructions-header'>
+                                Instructions
+                            </div>
+
+                            <div className='instructions-item'>
+                                {recipe.instructions}
+                            </div>
+                        </div>
+                    </div>)
+                }
             </div>
         );
     }
