@@ -1,0 +1,31 @@
+@mixin font {
+  font-style: normal;
+  font-weight: bold;
+  color: black;
+}
+
+.recipe-page {
+  .banner {
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 5px;
+  }
+
+  .title {
+    height: 150px;
+    background: aliceblue;
+
+    .recipe-name {
+      @include font();
+      font-size: 72px;
+      line-height: 84px;
+    }
+
+    .recipe-description {
+
+    }
+  }
+}
+
