@@ -1,10 +1,10 @@
 @mixin font {
   font-style: normal;
-  font-weight: bold;
   color: black;
 }
 
 .recipe-page {
+
   .banner {
     width: 100%;
     height: 500px;
@@ -14,17 +14,90 @@
   }
 
   .title {
-    height: 150px;
-    background: aliceblue;
+    margin: 1.5rem 1.5rem 1.5rem 4rem;
+    position: relative;
+
+    height: 120px;
 
     .recipe-name {
+      position: absolute;
+
       @include font();
+      font-weight: bold;
       font-size: 72px;
       line-height: 84px;
     }
 
     .recipe-description {
+      position: absolute;
+      bottom: 0;
 
+      @include font();
+      font-weight: normal;
+      font-size: 22px;
+      line-height: 28px;
+    }
+  }
+
+  .ingredients {
+    margin: 3rem 1.5rem 1.5rem 4rem;
+    //position: relative;
+    height: 400px;
+    width: 400px;
+
+
+    .ingredients-header {
+      //position: absolute;
+      height: 70px;
+
+      @include font();
+      font-style: italic;
+      font-weight: bold;
+      font-size: 64px;
+      line-height: 75px;
+
+      color: #FEC13E;
+    }
+
+    .ingredients-item {
+      //position: absolute;
+      margin-top: 1.5rem;
+
+      @include font();
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 28px;
+    }
+  }
+
+  .instructions {
+    margin: 3rem 1.5rem 1.5rem 4rem;
+    //position: relative;
+    height: 600px;
+    width: 400px;
+
+
+    .instructions-header {
+      //position: absolute;
+      height: 70px;
+
+      @include font();
+      font-style: italic;
+      font-weight: bold;
+      font-size: 64px;
+      line-height: 75px;
+
+      color: #FEC13E;
+    }
+
+    .instructions-item {
+      //position: absolute;
+      margin-top: 1.5rem;
+
+      @include font();
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 28px;
     }
   }
 }

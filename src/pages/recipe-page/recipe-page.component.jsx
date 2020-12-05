@@ -69,10 +69,35 @@ class RecipePage extends Component {
                     </span>
                 </div>
 
-                Ingredients: {recipe.recipeHasIngredientsById.map((ingredient) => (
-                    <div key={ingredient.id}>Unit Size: {ingredient.unitSize}</div>
-                ))}
+                <div className='ingredients'>
+                    <div className='ingredients-header'>
+                        Ingredients
+                    </div>
 
+                    <div className='ingredients-item'>
+                        {recipe.recipeHasIngredientsById.map((ingredientById) => (
+                            <div key={ingredientById.id}>
+                                <span>{ingredientById.unitSize} </span>
+
+                                {ingredientById.ingredientsByIngredientId.measurementUnitByMeasurementUnitId.type === "ammount" ?
+                                    ' ' : <span>{ingredientById.ingredientsByIngredientId.measurementUnitByMeasurementUnitId.type} </span>
+                                }
+
+                                <span>{ingredientById.ingredientsByIngredientId.name} </span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <div className='instructions'>
+                    <div className='instructions-header'>
+                        Instructions
+                    </div>
+
+                    <div className='instructions-item'>
+                        {recipe.instructions}
+                    </div>
+                </div>
             </div>
         );
     }
