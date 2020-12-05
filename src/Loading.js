@@ -27,7 +27,7 @@ const Loading = ({loading}) => {
             {!loading ? (
                 <Lottie options={defaultOptions} height={360} width={360} speed={2}/>
             ) : (
-                <Lottie options={defaultOptions2} height={360} width={360} speed={1.5} />
+                <Lottie options={defaultOptions2} height={240} width={240} speed={1.5} />
             )}
         </div>
     )
