@@ -28,10 +28,6 @@ class RecipesPage extends Component {
         this.fetchAll(this.state.currentPage);
     }
 
-    // componentDidUpdate(prevProps, prevState) {
-    //     if()this.state.show !== prevState.show
-    // }
-
     fetchAll(currentPage) {
         this.setState({loading: undefined});
         this.setState({done: undefined});
@@ -69,7 +65,7 @@ class RecipesPage extends Component {
                     <h1 className='title'>RECIPES</h1>
                     <div className='nav-bar'>
                         { show ? <div onClick={this.close} className='back-drop show'></div> : <div className='back-drop'></div> }
-                        <button onClick={ this.showModal } className="btn-openModal">Create New Recipe</button>
+                        <button onClick={ this.showModal } className="btn-openModal">Create Recipe</button>
                     </div>
                     <CreateModal show={show} close={this.close}/>
 
@@ -77,11 +73,11 @@ class RecipesPage extends Component {
 
                 </div>
 
-                {/*{!done ?*/}
-                {/*    (<Loading loading={loading} />)*/}
-                {/*    :*/}
-                {/*    (<RecipeList recipes={recipes} />)*/}
-                {/*}*/}
+                {!done ?
+                    (<Loading loading={loading} />)
+                    :
+                    (<RecipeList recipes={recipes} />)
+                }
             </div>
         );
     }

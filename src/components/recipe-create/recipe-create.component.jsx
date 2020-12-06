@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import http from '../../services/http.service';
-import './recipe-create.styles.css'
 import { Redirect } from 'react-router'
+import './recipe-create.style.scss'
 
 export default class CreateRecipe extends Component {
     constructor(props) {
@@ -85,7 +85,6 @@ export default class CreateRecipe extends Component {
                     iconSrc: r.data.iconSrc,
                     imageSrc: r.data.imageSrc
                 });
-                console.log("hi");
             })
             .catch(e => {
                 console.log(e);
@@ -95,7 +94,7 @@ export default class CreateRecipe extends Component {
 
     render() {
         return(
-            <div className='container'> =====Add Recipe=====
+            <div className='container'>
 
                 <form>
                     <div>
@@ -128,12 +127,14 @@ export default class CreateRecipe extends Component {
                             name="prepTime" id="prepTime"
                         />
                     </div>
+                    <div>
                         <label>Cook Time: </label>
                         <input
                             type="number" min={0} step={1} required
                             value={this.state.cookTime} onChange={this.onChangeCookTime}
                             id="cookTime" name="cookTime"
                         />
+                    </div>
                     <div>
                         <label>Portions: </label>
                         <input
