@@ -16,9 +16,11 @@ body {
     position: absolute;
     z-index: 2;
     transition: all .5s ease;
-    left: 30%;
+    left: 0;
+    right: 0;
     box-shadow: 0 0 30px 12px rgb(219 157 23 / 89%);
     border-radius: 30px;
+    margin-bottom: 15vh;
 }
 
 .close-modal-btn {
