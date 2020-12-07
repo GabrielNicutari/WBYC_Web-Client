@@ -4,8 +4,10 @@ import http from "../../services/http.service";
 import RecipeList from "../../components/recipe-list/recipe-list.component";
 import Loading from "../../Loading";
 import Pagination from "../../components/pagination/pagination.component";
+import {CreateModal} from "../../components/recipe-create/recipe-create-modal.component"
 
 import './recipes-page.styles.scss'
+
 
 class RecipesPage extends Component {
     constructor(props) {
@@ -21,6 +23,7 @@ class RecipesPage extends Component {
 
             loading: undefined,
             done: undefined,
+            show: false
         }
     }
 
@@ -69,6 +72,11 @@ class RecipesPage extends Component {
         }
     }
 
+    close = () => this.setState({show: false});
+
+    showModal = () => this.setState({show: true})
+
+
     render() {
         const { recipes, done, loading, totalItems, currentPage, sorting, itemsPerPage } = this.state;
 
@@ -76,6 +84,14 @@ class RecipesPage extends Component {
             <div className='recipes-page'>
                 <div className='recipes-header'>
                     <h1 className='title'>RECIPES</h1>
+                    <div className='nav-bar'>
+                        { show ? <div onClick={this.close} className='back-drop show'></div> : <div className='back-drop'></div> }
+                        <button onClick={ this.showModal } className="btn-openModal">Create Recipe</button>
+                    </div>
+                    <CreateModal show={show} close={this.close}/>
+
+
+
                 </div>
 
                 <div className='recipes-listings'>

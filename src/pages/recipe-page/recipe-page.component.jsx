@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 
 import http from "../../services/http.service";
 import Loading from "../../Loading";
-
 import './recipe-page.styles.scss';
+import {UpdateModal} from "../../components/recipe-update/recipe-update-modal.component";
 
 class RecipePage extends Component {
     constructor(props) {
@@ -26,11 +26,15 @@ class RecipePage extends Component {
             //ingredients: []
             loading: undefined,
             done: undefined,
+            show: false,
         }
     }
 
     componentDidMount() {
         this.getRecipe(this.props.match.params.id);
+    }
+
+    componentDidUpdate() {
     }
 
     getRecipe(id) {
@@ -60,8 +64,12 @@ class RecipePage extends Component {
     }
 
 
+    close = () => this.setState({show: false});
+
+    showModal = () => this.setState({show: true})
+
     render() {
-        const { recipe, done, loading } = this.state;
+        const { recipe, done, loading, show } = this.state;
 
         return (
             <div className='recipe-page'>
@@ -84,6 +92,12 @@ class RecipePage extends Component {
                         {recipe.description}
                     </span>
                         </div>
+
+                        <div className='nav-bar'>
+                            { show ? <div onClick={this.close} className='back-drop show'></div> : <div className='back-drop'></div> }
+                            <button onClick={ this.showModal } className="btn-openModal">Update Recipe</button>
+                        </div>
+                        <UpdateModal show={show} close={this.close} state={this.state.recipe}/>
 
                         <div className='ingredients'>
                             <div className='ingredients-header'>

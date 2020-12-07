@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import { Switch, Route } from 'react-router-dom';
 
 import Ingredientlist from "./components/ingredient-list/ingredient-list.component";
 import CreateRecipe from "./components/recipe-create/recipe-create.component";
+import UpdateRecipe from "./components/recipe-update/recipe-update.component";
 
 import RecipesPage from "./pages/recipes-page/recipes-page.component";
 import RecipePage from "./pages/recipe-page/recipe-page.component";
