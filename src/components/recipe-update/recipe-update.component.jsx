@@ -75,7 +75,7 @@ export default class UpdateRecipe extends Component {
             )
             .then((response) => {
                 console.log(response.data);
-                this.props.history.push("/recipes/update/" + this.state.id);
+                this.props.history.push("/recipes/recipes/" + this.state.id);
             })
             .catch((e) => {
                 console.log(e);
