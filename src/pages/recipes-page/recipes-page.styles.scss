@@ -21,11 +21,11 @@
     }
 
     .btn-openModal {
-      font-size: .7rem;
+      font-size: .85rem;
       position: relative;
       background: #fec13e;
       float: right;
-      width: 14%;
+      width: 5rem;
       margin: 1vh 15vw 1vh 1vh;
       cursor: pointer;
 
@@ -55,12 +55,10 @@
       }
 
       @media screen and (min-width: 608px){
-        font-size: .85rem;
         margin: 1vh 10vw 1vh 1vh;
       }
 
       @media screen and (min-width: 1000px){
-        font-size: 1rem;
         margin: 1vh 5vw 1vh 1vh;
       }
 
