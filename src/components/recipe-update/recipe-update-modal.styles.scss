@@ -10,8 +10,8 @@ body {
 
 .modal-wrapper {
     background: #fff;
-    width: 80%;
-    max-width: 1000px;
+    width: 100%;
+    max-width: 1200px;
     margin: auto;
     position: absolute;
     z-index: 2;
@@ -35,7 +35,10 @@ body {
 }
 
 .close-modal-btn:hover {
-   color: #FEC13E;
+    background: #161616;
+    opacity: .8;
+    transition: background-color .1s;
+    color: aliceblue;
 }
 
 .close-modal-btn:active {
@@ -56,24 +59,15 @@ body {
 }
 
 .modal-footer button {
-    display: inline-block;
+    display: block;
     font-size: 1rem;
-    margin-left: 10%;
+    margin-left: auto;
     padding: 0.5rem 1.8rem;
-    color: black;
+    background: #DD501D;
+    color: #fff;
     border: none;
     outline: none;
     cursor: pointer;
-    width: 20%;
-    height: 50px;
-    left: 599px;
-    top: 505px;
-    float: left;
-    margin-right: 25%;
-    margin-top: 5%;
-
-    background: linear-gradient(273.91deg, #FFDD94 1.04%, rgba(255, 230, 176, 0.8) 98.54%);
-    border-radius: 4px;
 }
 
 .headline {

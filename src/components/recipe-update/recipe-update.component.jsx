@@ -85,99 +85,91 @@ export default class UpdateRecipe extends Component {
 
 
     render() {
-        console.log("state:" + this.state.name);
-        console.log("id:" + this.state.id);
 
         return(
-            <div className='container'> =====Update Recipe=====
+            <div className='container'>
 
                 <form>
-                    <div>
-                        <label class="floating-label">Name: </label>
-                        <input
-                            class="inputText"
-                            type="text" id="name" required value={this.state.name}
-                            onChange={this.onChangeName} name="name"
-                        />
+                    <div className="field1-2">
+                        <div>
+                            <label>Name</label><br/>
+                            <input
+                                type="text" id="name" required value={this.state.name}
+                                onChange={this.onChangeName} name="name"
+                            />
+                        </div>
+                        <div>
+                            <label>Author</label><br/>
+                            <input
+                                type="text" id="author" required
+                                value={this.state.author} onChange={this.onChangeAuthor} name="author"
+                            />
+                        </div>
                     </div>
 
                     <div>
-                        <label class="floating-label">Description: </label>
+                        <label>Description: </label><br/>
                         <textarea
-                            class="inputText"
-                             placeholder="Recipe Description" rows={5} cols={50}
-                             value={this.state.description} onChange={this.onChangeDescription}
-                             id="description" name="description"
+                            placeholder="Recipe Description" rows={5} cols={50}
+                            value={this.state.description} onChange={this.onChangeDescription}
+                            id="description" name="description"
                         />
                     </div>
 
-                    <div>
-                        <label class="floating-label">Author: </label>
-                        <input
-                            class="inputText"
-                            type="text" id="author" required
-                            value={this.state.author} onChange={this.onChangeAuthor} name="author"
-                        />
+                    <div className="field4-5-6">
+                        <div>
+                            <label>Prep Time: </label><br/>
+                            <input
+                                type="number" min={0} step={1} required
+                                value={this.state.prepTime} onChange={this.onChangePrepTime}
+                                name="prepTime" id="prepTime"
+                            />
+                        </div>
+
+                        <div>
+                            <label>Cook Time: </label><br/>
+                            <input
+                                type="number" min={0} step={1} required
+                                value={this.state.cookTime} onChange={this.onChangeCookTime}
+                                id="cookTime" name="cookTime"
+                            />
+                        </div>
+
+                        <div>
+                            <label>Portions: </label><br/>
+                            <input
+                                type="number" min={0} step={1} required
+                                value={this.state.portions} onChange={this.onChangePortions}
+                                id="portions" name="portions"
+                            />
+                        </div>
                     </div>
 
-                    <div>
-                        <label class="floating-label">Preparation Time: </label>
-                        <input
-                            class="inputText"
-                            type="number" min={0} step={1} required
-                            value={this.state.prepTime} onChange={this.onChangePrepTime}
-                            name="prepTime" id="prepTime"
-                        />
-                    </div>
-
-                        <label class="floating-label">Cook Time: </label>
-                        <input
-                            class="inputText"
-                            type="number" min={0} step={1} required
-                            value={this.state.cookTime} onChange={this.onChangeCookTime}
-                            id="cookTime" name="cookTime"
-                        />
-
-                    <div>
-                        <label class="floating-label">Portions: </label>
-                        <input
-                            class="inputText"
-                            type="number" min={0} step={1} required
-                            value={this.state.portions} onChange={this.onChangePortions}
-                            id="portions" name="portions"
-                        />
-                    </div>
-
-                    <div>
-                        <label class="floating-label">Instructions: </label>
-                        <input
-                            class="inputText"
-                            type="text" id="instructions" name="instructions" required
+                    <div className="instructionse">
+                        <label>Instructions: </label><br/>
+                        <textarea
+                            placeholder="Recipe Instructions" rows={15  } cols={50}
+                            id="instructions" name="instructions" required
                             value={this.state.instructions} onChange={this.onChangeInstructions}
 
                         />
                     </div>
-
-                    <div>
-                        <label class="floating-label">Icon Source: </label>
+                    <div className="url-source">
+                        <label>Icon Source: </label><br/>
                         <input
-                            class="inputText"
                             type="text" id="iconSrc" name="iconSrc" required
                             value={this.state.iconSrc} onChange={this.onChangeIconSrc}
-
                         />
                     </div>
-
-                    <div>
-                        <label class="floating-label">Image Source: </label>
+                    <div className="url-source">
+                        <label>Image Source: </label><br/>
                         <input
-                            class="inputText"
                             type="text" id="imgSrc" name="imgSrc" required
                             value={this.state.imageSrc} onChange={this.onChangeImageSrc}
                         />
                     </div>
 
-                    <button onClick={this.updateRecipe} type="submit">
+                    <button class="btn btn-submit" onClick={this.updateRecipe} type="submit">
                         Submit
                     </button>
 

@@ -175,7 +175,8 @@ export default class CreateRecipe extends Component {
                             value={this.state.imageSrc} onChange={this.onChangeImageSrc}
                         />
                     </div>
-                    <button onClick={this.saveRecipe}>
+
+                    <button class="btn btn-submit" onClick={this.saveRecipe}>
                         Submit
                     </button>
 

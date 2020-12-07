@@ -21,7 +21,7 @@ export const CreateModal= ({show, close}) => {
                 </div>
                 <CreateRecipe/>
                 <div className="modal-footer">
-                    <button onClick={close} className="btn-cancel">Close</button>
+                    <button onClick={close} className="btn btn-cancel">Close</button>
                 </div>
             </div>
         </div>

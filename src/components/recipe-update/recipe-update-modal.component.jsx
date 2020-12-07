@@ -12,16 +12,15 @@ export const UpdateModal= ({show, close, state}) => {
              }}
         >
             <div className="modal-header">
-                <p>Welcome To Our Site</p>
                 <span onClick={close} className="close-modal-btn">x</span>
             </div>
             <div className="modal-content">
                 <div className="modal-body">
-                    <h4>Modal</h4>
+                    <div className="headline">Update selected recipe</div>
                     <UpdateRecipe state={state}/>
                 </div>
                 <div className="modal-footer">
-                    <button onClick={close} className="btn-cancel">Close</button>
+                    <button onClick={close} className="btn btn-cancel">Close</button>
                 </div>
             </div>
         </div>

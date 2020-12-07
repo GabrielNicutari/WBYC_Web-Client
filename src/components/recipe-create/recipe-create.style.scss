@@ -28,10 +28,28 @@ input:hover, textarea:hover {
   display: flex;
   justify-content: space-between;
 }
+
 .field4-5-6 input {
-  width: 5.6vw;
+  width: 5.6vw
 }
 
 .url-source input {
-  width: 30vw;
+  width: 100%;
+}
+
+.btn-submit {
+  display: inline-block;
+  font-size: 1rem;
+  margin-left: 25%;
+  padding: 0.5rem 1.8rem;
+  color: black;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 20%;
+  height: 50px;
+  left: 0px;
+  top: 505px;
+  float: left;
+  margin-top: 5%;
 }
