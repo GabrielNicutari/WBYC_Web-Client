@@ -78,7 +78,7 @@ class RecipesPage extends Component {
 
 
     render() {
-        const { recipes, done, loading, totalItems, currentPage, sorting, itemsPerPage } = this.state;
+        const { recipes, done, loading, totalItems, currentPage, sorting, itemsPerPage, show } = this.state;
 
         return (
             <div className='recipes-page'>
