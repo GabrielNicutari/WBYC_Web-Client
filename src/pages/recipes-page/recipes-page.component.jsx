@@ -1,8 +1,9 @@
-import React, { Component, useEffect } from 'react';
+import React, { Component } from 'react';
 
 import http from "../../services/http.service";
 import RecipeList from "../../components/recipe-list/recipe-list.component";
 import Loading from "../../Loading";
+import Pagination from "../../components/pagination/pagination.component";
 
 import './recipes-page.styles.scss'
 
@@ -13,8 +14,10 @@ class RecipesPage extends Component {
         this.state = {
             recipes: [],
             currentPage: 0,
+            itemsPerPage: 1,
             totalPages: null,
             totalItems: null,
+            sorting: "id,asc",
 
             loading: undefined,
             done: undefined,
@@ -22,22 +25,23 @@ class RecipesPage extends Component {
     }
 
     componentDidMount() {
-        this.fetchAll(this.state.currentPage);
+        this.fetchAll(this.state.currentPage, this.state.sorting);
     }
 
-    fetchAll(currentPage) {
+    fetchAll(currentPage, sort) {
         this.setState({loading: undefined});
         this.setState({done: undefined});
 
-        http.get("recipes?page=" + currentPage)
+        http.get("recipes?page=" + currentPage + "&sort=" + sort)
             .then(response => {
                 console.log(response.data);
 
                 this.setState({totalPages: response.data.totalPages});
                 this.setState({totalItems: response.data.totalItems});
                 this.setState({recipes: response.data.recipes});
+                this.setState({itemsPerPage:response.data.size});
             })
-            .then(data => {
+            .then(() => {
                 this.setState({loading: true});
                 setTimeout(() => {
                     this.setState({done: true});
@@ -48,8 +52,25 @@ class RecipesPage extends Component {
             })
     }
 
+    paginate = pageNr => {
+        this.setState({currentPage: pageNr - 1})
+    }
+
+    sortToggle = () => {
+        this.state.sorting === "id,asc" ?
+            (this.setState({sorting: "id,desc"}))
+            :
+            (this.setState({sorting: "id,asc"}));
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(this.state.sorting !== prevState.sorting || this.state.currentPage !== prevState.currentPage) {
+            this.fetchAll(this.state.currentPage, this.state.sorting);
+        }
+    }
+
     render() {
-        const { recipes, done, loading } = this.state;
+        const { recipes, done, loading, totalItems, currentPage, sorting, itemsPerPage } = this.state;
 
         return (
             <div className='recipes-page'>
@@ -57,14 +78,32 @@ class RecipesPage extends Component {
                     <h1 className='title'>RECIPES</h1>
                 </div>
 
+                <div className='recipes-listings'>
+                    <span className='results'>{currentPage * itemsPerPage + 1} - {totalItems - ((currentPage) * itemsPerPage) > itemsPerPage ?
+                        ((currentPage + 1) * itemsPerPage) : totalItems} of {totalItems} total results for <strong>Recipes</strong>
+                    </span>
+
+                    <button className='btn btn-sort' onClick={this.sortToggle}>
+                        <span>Sort: {sorting}</span>
+                    </button>
+
+                </div>
+
+                <Pagination itemsPerPage={itemsPerPage} totalItems={totalItems} paginate={this.paginate} done={done}/>
+
                 {!done ?
-                    (<Loading loading={loading} />)
+                    <Loading loading={loading} />
                     :
                     (<RecipeList recipes={recipes} />)
                 }
+
+                {/*<Pagination itemsPerPage={itemsPerPage} totalItems={totalItems} paginate={this.paginate} done={done}/>*/}
+
+
             </div>
         );
     }
 }
+
 
 export default RecipesPage;

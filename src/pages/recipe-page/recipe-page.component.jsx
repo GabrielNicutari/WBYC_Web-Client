@@ -48,7 +48,7 @@ class RecipePage extends Component {
                 // })
                 console.log(response.data);
             })
-            .then(data => {
+            .then(() => {
                 this.setState({loading: true});
                 setTimeout(() => {
                     this.setState({done: true});
