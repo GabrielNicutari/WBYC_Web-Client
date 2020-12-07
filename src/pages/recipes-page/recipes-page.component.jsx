@@ -14,7 +14,7 @@ class RecipesPage extends Component {
         this.state = {
             recipes: [],
             currentPage: 0,
-            itemsPerPage: 12,
+            itemsPerPage: 1,
             totalPages: null,
             totalItems: null,
             sorting: "id,asc",
@@ -39,6 +39,7 @@ class RecipesPage extends Component {
                 this.setState({totalPages: response.data.totalPages});
                 this.setState({totalItems: response.data.totalItems});
                 this.setState({recipes: response.data.recipes});
+                this.setState({itemsPerPage:response.data.size});
             })
             .then(() => {
                 this.setState({loading: true});
