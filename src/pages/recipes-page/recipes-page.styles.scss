@@ -14,4 +14,43 @@
       padding-left: 20px;
     }
   }
+
+  .recipes-listings {
+    height: 40px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 0 10px #ddd;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1600px;
+    margin: 10px auto 0 auto;
+    justify-content: space-between;
+
+      .results {
+        margin: auto 20px;
+      }
+
+      .btn-sort {
+        background-color:#FFDD94;
+        text-decoration: none;
+        border-radius: 100px;
+        border: none;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+        backdrop-filter: blur(10px);
+        box-sizing: border-box;
+        box-shadow: 3px 3px 5px 0 rgba(0,0,0,.1);
+        transition: all 0.2s ease;
+
+        max-width: 340px;
+        padding: 8px 13px;
+        margin: auto 20px;
+
+        &:hover {
+          background-color:#FEC13E;
+          transition: all 0.3s ease;
+        }
+      }
+  }
 }
