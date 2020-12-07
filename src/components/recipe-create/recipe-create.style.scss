@@ -1,3 +1,7 @@
+*{
+  font-size: 1rem;
+}
+
 form div {
   margin: 4vh 0;
   font-size: 1.5rem;
@@ -9,7 +13,6 @@ input, textarea {
   border-bottom: #838383 solid 2px;
   outline: none;
   padding: 1vh 0;
-  font-size: 1.5rem;
   margin: 1vh 1vh 1vh 0;
   transition: border-bottom .1s;
 }
@@ -23,6 +26,19 @@ input:hover, textarea:hover {
   display: flex;
   justify-content: space-between;
 }
+.field1-2 input {
+  width: 5rem;
+
+  @media screen and (min-width: 625px) {
+    width: 7rem;
+  }
+  @media screen and (min-width: 783px) {
+    width: 11rem;
+  }
+  @media screen and (min-width: 980px) {
+    width: 12rem;
+  }
+}
 
 .field4-5-6 {
   display: flex;
@@ -35,3 +51,45 @@ input:hover, textarea:hover {
 .url-source input {
   width: 30vw;
 }
+
+.submit-btn {
+  font-size: 1.5rem;
+  padding: 1.5vh;
+  margin-top: 2vh;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background: #4caf50;
+  opacity: .9;
+  border-radius: 5px;
+  transition: opacity .1s;
+  color: #ffffff;
+  box-shadow: 0 6px #6b6b6b;
+}
+.submit-btn:hover {
+  opacity: .95;
+  transition: opacity .1s;
+}
+.submit-btn:active {
+  opacity: 1;
+  box-shadow: 0 3px #666;
+  transform: translateY(3px);
+}
+
+.text-box {
+  height: 5rem;
+  width: 15rem;
+
+  @media screen and (min-width: 625px) {
+    width: 22rem;
+  }
+  @media screen and (min-width: 783px) {
+    width: 24rem;
+  }
+  @media screen and (min-width: 980px) {
+    width: 26rem;
+  }
+
+}
+
+

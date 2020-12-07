@@ -116,8 +116,8 @@ export default class CreateRecipe extends Component {
 
                     <div>
                         <label>Description: </label><br/>
-                        <textarea
-                             placeholder="Recipe Description" rows={5} cols={50}
+                        <textarea className="text-box"
+                             placeholder="Recipe Description"
                              value={this.state.description} onChange={this.onChangeDescription}
                              id="description" name="description"
                         />
@@ -154,8 +154,8 @@ export default class CreateRecipe extends Component {
 
                     <div className="instructions">
                         <label>Instructions: </label><br/>
-                        <textarea
-                            placeholder="Recipe Instructions" rows={5} cols={50}
+                        <textarea className="text-box"
+                            placeholder="Recipe Instructions"
                             id="instructions" name="instructions" required
                             value={this.state.instructions} onChange={this.onChangeInstructions}
 
@@ -175,7 +175,8 @@ export default class CreateRecipe extends Component {
                             value={this.state.imageSrc} onChange={this.onChangeImageSrc}
                         />
                     </div>
-                    <button onClick={this.saveRecipe}>
+
+                    <button onClick={this.saveRecipe} className="submit-btn">
                         Submit
                     </button>
 

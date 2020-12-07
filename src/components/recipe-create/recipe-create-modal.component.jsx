@@ -3,12 +3,13 @@ import './recipe-create-modal.styles.scss'
 import CreateRecipe from './recipe-create.component.jsx'
 
 export const CreateModal= ({show, close}) => {
-    console.log("show: " + show + "close: " + close);
     return (
         <div className="modal-wrapper"
              style={{
                  transform: show ? 'translateY(0vh)' : 'translateY(-100vh)',
-                 opacity: show ? '1' : '0'
+                 opacity: show ? '1' : '0',
+                 zIndex: show ? '10' : '-2',
+                 transition: show ? '.5s ease' : '.5s ease'
              }}
         >
             <div onClick={close} className="close-modal-btn">x</div>
@@ -23,6 +24,7 @@ export const CreateModal= ({show, close}) => {
                 <div className="modal-footer">
                     <button onClick={close} className="btn-cancel">Close</button>
                 </div>
+
             </div>
         </div>
     )
