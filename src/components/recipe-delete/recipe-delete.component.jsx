@@ -39,7 +39,7 @@ export default class DeleteRecipe extends Component {
             <div className='container'>
 
                 <form>
-                    <button className="btn btn-submit" onClick={this.deleteRecipe} type="submit">
+                    <button className="btn-small btn-submit" onClick={this.deleteRecipe} type="submit">
                         Yes, delete
                     </button>
 

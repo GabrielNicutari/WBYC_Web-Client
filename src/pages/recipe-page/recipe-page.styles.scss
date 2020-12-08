@@ -112,7 +112,9 @@
   }
 
   .btn-openModal {
-    border-width: 0px;
+    border: none;
+    outline: none;
+    cursor: pointer;
 
     float: right;
     position: relative;

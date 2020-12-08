@@ -169,7 +169,7 @@ export default class UpdateRecipe extends Component {
                         />
                     </div>
 
-                    <button class="btn btn-submit" onClick={this.updateRecipe} type="submit">
+                    <button class="btn-small btn-submit" onClick={this.updateRecipe} type="submit">
                         Submit
                     </button>
 

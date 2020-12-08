@@ -20,7 +20,7 @@ export const DeleteModal= ({showDelete, closeDelete, state}) => {
                     <DeleteRecipe state={state}/>
                 </div>
                 <div className="modal-footer">
-                    <button onClick={closeDelete} className="btn btn-cancel">Cancel</button>
+                    <button onClick={closeDelete} className="btn-small btn-cancel">Cancel</button>
                 </div>
             </div>
         </div>

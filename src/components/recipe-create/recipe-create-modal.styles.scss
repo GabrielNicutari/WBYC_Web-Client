@@ -14,6 +14,7 @@ body {
     max-width: 1000px;
     position: absolute;
     z-index: 2;
+    top: 60px;
     transition: .5s ease;
     left: 0;
     right: 0;
@@ -44,7 +45,6 @@ body {
 .modal-content {
     padding: 6.5rem 5rem;
 }
-
 
 .modal-body p {
     font-size: 1rem;
