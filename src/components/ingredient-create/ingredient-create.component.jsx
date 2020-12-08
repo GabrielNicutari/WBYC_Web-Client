@@ -98,7 +98,7 @@ export default class CreateIngredient extends Component {
                         />
                     </div>
 
-                    <button className="btn btn-submit" onClick={this.saveIngredient}>
+                    <button className="btn-small btn-submit" onClick={this.saveIngredient}>
                         Submit
                     </button>
 
