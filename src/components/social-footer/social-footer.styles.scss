@@ -1,17 +1,25 @@
-.grid-header {
+.social-media-block {
+  background: rgb(245,245,245);
+  background: linear-gradient(90deg, rgb(245, 245, 245) 0%, rgba(200, 200, 200, 0.41) 100%);
+  text-align: center;
+}
+
+
+.follow-us {
   font-family: Roboto, serif;
+  margin: 2vw 0 0 0;
+  padding: 5vh 0 0 0;
   font-style: normal;
   font-weight: bold;
-  font-size: 24px;
-  //line-height: 28px;
-  margin-bottom: 2vh;
+  font-size: 72px;
+  line-height: 84px;
 }
 
-.grid {
-  width: 15vw;
-  margin-right: 5vw;
+.icon {
+  margin: 0 1vw 7vh 1vh;
+  color: #181818;
+  //outline: 1px solid #000000;
 }
 
-.item {
-  margin-bottom: 1vh;
-}
+
+

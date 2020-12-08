@@ -32,6 +32,7 @@ class App extends Component {
                     <Route path={"/recipes/:id"} component={RecipePage} />
                 </Switch>
                 <SocialFooter/>
+                <Footer/>
             </div>
         );
     }
