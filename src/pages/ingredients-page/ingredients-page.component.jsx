@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 
 import http from "../../services/http.service";
-import RecipeList from "../../components/recipe-list/recipe-list.component";
+import IngredientList from "../../components/ingredient-list/ingredient-list.component";
 import Loading from "../../Loading";
 import Pagination from "../../components/pagination/pagination.component";
 import {CreateModal} from "../../components/recipe-create/recipe-create-modal.component"
 
-import './recipes-page.styles.scss'
+import './ingredients-page.styles.scss'
 
 
-class RecipesPage extends Component {
+class IngredientsPage extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            recipes: [],
+            ingredients: [],
             currentPage: 0,
             itemsPerPage: 1,
             totalPages: null,
@@ -35,13 +35,13 @@ class RecipesPage extends Component {
         this.setState({loading: undefined});
         this.setState({done: undefined});
 
-        http.get("recipes?page=" + currentPage + "&sort=" + sort)
+        http.get("ingredients?page=" + currentPage + "&sort=" + sort)
             .then(response => {
                 console.log(response.data);
 
                 this.setState({totalPages: response.data.totalPages});
                 this.setState({totalItems: response.data.totalItems});
-                this.setState({recipes: response.data.recipes});
+                this.setState({ingredients: response.data.ingredients});
                 this.setState({itemsPerPage:response.data.size});
             })
             .then(() => {
@@ -78,23 +78,23 @@ class RecipesPage extends Component {
 
 
     render() {
-        const { recipes, done, loading, totalItems, currentPage, sorting, itemsPerPage, show } = this.state;
+        const { ingredients, done, loading, totalItems, currentPage, sorting, itemsPerPage, show } = this.state;
 
         return (
-            <div className='recipes-page'>
-                <div className='recipes-header'>
-                    <h1 className='title'>RECIPES</h1>
+            <div className='ingredients-page'>
+                <div className='ingredients-header'>
+                    <h1 className='title'>INGREDIENTS</h1>
                     <div className='nav-bar'>
                         { show ? <div onClick={this.close} className='back-drop show'/> : <div className='back-drop'/> }
-                        <button onClick={ this.showModal } className="btn-openModal">Create Recipe</button>
+                        <button onClick={ this.showModal } className="btn-openModal">Add Ingredient</button>
                     </div>
                     <CreateModal show={show} close={this.close}/>
 
                 </div>
 
-                <div className='recipes-listings'>
+                <div className='ingredients-listings'>
                     <span className='results'>{currentPage * itemsPerPage + 1} - {totalItems - ((currentPage) * itemsPerPage) > itemsPerPage ?
-                        ((currentPage + 1) * itemsPerPage) : totalItems} of {totalItems} total results for <strong>Recipes</strong>
+                        ((currentPage + 1) * itemsPerPage) : totalItems} of {totalItems} total results for <strong>Ingredients</strong>
                     </span>
 
                     <button className='btn btn-sort' onClick={this.sortToggle}>
@@ -108,11 +108,10 @@ class RecipesPage extends Component {
                 {!done ?
                     <Loading loading={loading} />
                     :
-                    (<RecipeList recipes={recipes} />)
+                    (<IngredientList ingredients={ingredients} />)
                 }
 
                 {/*<Pagination itemsPerPage={itemsPerPage} totalItems={totalItems} paginate={this.paginate} done={done}/>*/}
-
 
             </div>
         );
@@ -120,4 +119,4 @@ class RecipesPage extends Component {
 }
 
 
-export default RecipesPage;
+export default IngredientsPage;

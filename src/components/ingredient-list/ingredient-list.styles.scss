@@ -1,1 +1,13 @@
+.ingredient-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: calc(100% + 1rem);
+  margin: 0 auto;
+  max-width: 1600px;
 
+  .preview {
+    display: contents;
+    justify-content: space-between;
+  }
+}
