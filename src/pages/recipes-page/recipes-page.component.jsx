@@ -86,7 +86,7 @@ class RecipesPage extends Component {
                     <h1 className='title'>RECIPES</h1>
                     <div className='nav-bar'>
                         { show ? <div onClick={this.close} className='back-drop show'/> : <div className='back-drop'/> }
-                        <button onClick={ this.showModal } className="btn-openModal">Create Recipe</button>
+                        <button onClick={ this.showModal } className="btn btn-openModal">Create Recipe</button>
                     </div>
                     <CreateModal show={show} close={this.close}/>
 

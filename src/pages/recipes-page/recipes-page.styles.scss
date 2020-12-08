@@ -20,17 +20,12 @@
     }
 
     .btn-openModal {
-      font-size: .85rem;
       position: relative;
-      background: #fec13e;
-      float: right;
-      width: 5rem;
-      margin: 1vh 15vw 1vh 1vh;
-      cursor: pointer;
-
-      transition: background .1s, border .1s, border-radius .1s, opacity .1s;
-      border: #fec13e solid;
-      border-radius: 5px;
+      top: 25%;
+      font-size: 1rem;
+      padding: 0.5rem 1.8rem;
+      color: black;
+      border: none;
       outline: none;
       cursor: pointer;
       width: 20%;
@@ -40,26 +35,8 @@
       margin: 0;
       align-items: center;
       vertical-align: center;
-      }
-
-      &:active {
-        border: #f17061 solid;
-        opacity: 1;
-        outline: none;
-        box-shadow: 0 2px #8a413b;
-        transform: translateY(1px);
-      }
-
-      @media screen and (min-width: 608px){
-        margin: 1vh 10vw 1vh 1vh;
-      }
-
-      @media screen and (min-width: 1000px){
-        margin: 1vh 5vw 1vh 1vh;
-      }
-
     }
-}
+  }
 
   .recipes-listings {
     height: 40px;
@@ -72,32 +49,33 @@
     margin: 10px auto 0 auto;
     justify-content: space-between;
 
-      .results {
-        margin: auto 20px;
+    .results {
+      margin: auto 20px;
+    }
+
+    .btn-sort {
+      background-color:#FFDD94;
+      text-decoration: none;
+      border-radius: 100px;
+      border: none;
+      text-align: center;
+      cursor: pointer;
+      outline: none;
+      backdrop-filter: blur(10px);
+      box-sizing: border-box;
+      box-shadow: 3px 3px 5px 0 rgba(0,0,0,.1);
+      transition: all 0.2s ease;
+
+      max-width: 340px;
+      padding: 8px 13px;
+      margin: auto 20px;
+
+      &:hover {
+        background-color:#FEC13E;
+        transition: all 0.3s ease;
       }
-
-      .btn-sort {
-        background-color:#FFDD94;
-        text-decoration: none;
-        border-radius: 100px;
-        border: none;
-        text-align: center;
-        cursor: pointer;
-        outline: none;
-        backdrop-filter: blur(10px);
-        box-sizing: border-box;
-        box-shadow: 3px 3px 5px 0 rgba(0,0,0,.1);
-        transition: all 0.2s ease;
-
-        max-width: 340px;
-        padding: 8px 13px;
-        margin: auto 20px;
-
-        &:hover {
-          background-color:#FEC13E;
-          transition: all 0.3s ease;
-        }
-      }
+    }
   }
+}
 
 
