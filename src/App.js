@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.scss';
 import { Switch, Route } from 'react-router-dom';
 
+import Footer from "./components/footer/footer.component";
+import SocialFooter from "./components/social-footer/social-footer.component";
 import IngredientsPage from "./pages/ingredients-page/ingredients-page.component";
 import RecipesPage from "./pages/recipes-page/recipes-page.component";
 import RecipePage from "./pages/recipe-page/recipe-page.component";
@@ -29,6 +31,8 @@ class App extends Component {
                     <Route exact path={"/ingredients"} component={IngredientsPage} />
                     <Route path={"/recipes/:id"} component={RecipePage} />
                 </Switch>
+                <Footer/>
+                <SocialFooter/>
             </div>
         );
     }
