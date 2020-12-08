@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+
 import './App.scss';
+import "fontsource-roboto";
+
 import { Switch, Route } from 'react-router-dom';
 
 import Footer from "./components/footer/footer.component";

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 
 import './index-page.styles.scss';
-import "fontsource-roboto";
 import SocialFooter from "../../components/social-footer/social-footer.component";
 
 class HomePage extends Component {

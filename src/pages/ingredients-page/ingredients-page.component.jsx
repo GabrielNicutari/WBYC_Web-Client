@@ -6,6 +6,7 @@ import Loading from "../../Loading";
 import Pagination from "../../components/pagination/pagination.component";
 import {CreateModal} from "../../components/recipe-create/recipe-create-modal.component"
 
+import "fontsource-roboto";
 import './ingredients-page.styles.scss'
 
 

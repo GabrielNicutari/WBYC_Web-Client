@@ -1,3 +1,7 @@
+@mixin font() {
+  font-family: Roboto;
+}
+
 .recipes-page {
 
   .recipes-header {
@@ -7,6 +11,7 @@
     padding: 0px 10%;
 
     .title {
+      @include font();
       font-size: 28px;
       width: 20%;
       max-width: 1600px;
@@ -23,6 +28,7 @@
     .btn-openModal {
       position: relative;
       top: 25%;
+      @include font();
       font-size: 1rem;
       padding: 0.5rem 1.8rem;
       color: black;
@@ -40,6 +46,7 @@
   }
 
   .recipes-listings {
+    @include font();
     height: 60px;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
@@ -57,6 +64,7 @@
     }
 
     .btn-sort {
+      @include font();
       background-color:#FFDD94;
       text-decoration: none;
       border: none;

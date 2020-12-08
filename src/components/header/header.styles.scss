@@ -1,3 +1,7 @@
+@mixin font {
+  font-family: Roboto;
+}
+
 .header {
   height: 75px;
   width: 100%;
@@ -25,6 +29,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    @include font();
     font-weight: bold;
 
     .option {
@@ -42,6 +47,7 @@
   }
 
   .btn-login {
+    @include font();
     position: relative;
     top: 15%;
     font-size: 14px;
@@ -57,9 +63,6 @@
     margin: 0;
     align-items: center;
     vertical-align: center;
-
-    font-family: Roboto;
     font-weight: 700;
-
   }
 }
