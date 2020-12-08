@@ -1,3 +1,7 @@
+@mixin font {
+  font-family: Roboto;
+}
+
 .social-media-block {
   background: rgb(245,245,245);
   background: linear-gradient(90deg, rgb(245, 245, 245) 0%, rgba(200, 200, 200, 0.41) 100%);
@@ -6,7 +10,7 @@
 
 
 .follow-us {
-  font-family: Roboto, serif;
+  @include font();
   margin: 2vw 0 0 0;
   padding: 5vh 0 0 0;
   font-style: normal;
