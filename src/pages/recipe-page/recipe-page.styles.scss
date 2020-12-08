@@ -17,6 +17,8 @@
   .title {
     margin: 1.5rem 1.5rem 1.5rem 4rem;
     position: relative;
+    padding-left: 5%;
+    margin-top: 3%;
 
     height: 120px;
 
@@ -42,13 +44,17 @@
 
   .ingredients {
     margin: 3rem 1.5rem 1.5rem 4rem;
-    //position: relative;
+    position: relative;
     height: 400px;
     width: 400px;
+    padding-left: 5%;
+
+    margin-top: 100px;
+    margin-bottom: -50px;
 
 
     .ingredients-header {
-      //position: absolute;
+      position: relative;
       height: 70px;
 
       @include font();
@@ -61,7 +67,7 @@
     }
 
     .ingredients-item {
-      //position: absolute;
+      position: relative;
       margin-top: 1.5rem;
 
       @include font();
@@ -73,13 +79,16 @@
 
   .instructions {
     margin: 3rem 1.5rem 1.5rem 4rem;
-    //position: relative;
-    height: 600px;
-    width: 400px;
+    position: relative;
+    height: 100%;
+    width: 900px;
+    padding-left: 5%;
+
+    margin-bottom: 150px;
 
 
     .instructions-header {
-      //position: absolute;
+      position: relative;
       height: 70px;
 
       @include font();
@@ -92,14 +101,44 @@
     }
 
     .instructions-item {
-      //position: absolute;
+      position: relative;
       margin-top: 1.5rem;
 
       @include font();
       font-weight: normal;
-      font-size: 24px;
+      font-size: 1rem !important;
       line-height: 28px;
     }
+  }
+
+  .btn-openModal {
+    border-width: 0px;
+
+    float: right;
+    position: relative;
+    top: -120px;
+    margin-right: 10%;
+  }
+
+  .item {
+    position: relative;
+    top: 150px;
+    font-family: Roboto;
+  }
+
+  .clockIcon {
+    margin-right: 20px;
+  }
+
+  .highLight2 {
+    color: #FEC13E;
+    font-family: Roboto;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  .btn-updateModal {
+    margin-right: 10px;
   }
 }
 
