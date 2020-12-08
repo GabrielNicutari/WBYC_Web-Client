@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 
 import './index-page.styles.scss';
 import "fontsource-roboto";
+import SocialFooter from "../../components/social-footer/social-footer.component";
+import Footer from "../../components/footer/footer.component";
 
 class HomePage extends Component {
     constructor(props) {
@@ -24,7 +26,7 @@ class HomePage extends Component {
 
                     <div className='cta'>
                         <p className='bannerText'>Tailor your weekly menu so you get the most delicious recipes</p>
-                        <br></br>
+                        <br/>
                         <p className='bannerText'>and fresh ingredients delivered to your door.</p>
                         <button className="btn btn-cta">Order now</button>
                     </div>
@@ -40,7 +42,7 @@ class HomePage extends Component {
 
                     <div className='ctaApp'>
                         <p className='ctaText'>Track your deliveries</p>
-                        <br></br>
+                        <br/>
                         <p className='ctaText'> with our <span className='highLight'>app</span></p>
 
                     </div>
@@ -48,23 +50,18 @@ class HomePage extends Component {
                     <div className='ctaApp2'>
 
                         <p className='ctaText2'>Track your deliveries</p>
-                        <br></br>
+                        <br/>
                         <p className='ctaText2'> real time and command from anywhere</p>
                     </div>
 
-                    <div className='google-play'></div>
-                    <div className='app-store'></div>
-
-
-
+                    <div className='google-play'/>
+                    <div className='app-store'/>
 
                 </div>
 
-                <div className='bottomPart'>
-                </div>
+                <div className='bottomPart'> </div>
+                <Footer/>
             </div>
-
-
         );
     }
 }
