@@ -19,7 +19,7 @@ const Header = () => (
                 INGREDIENTS
             </Link>
         </div>
-        <button className="btn btn-login">Login</button>
+        <button className="btn-medium btn-login">Login</button>
     </div>
 )
 

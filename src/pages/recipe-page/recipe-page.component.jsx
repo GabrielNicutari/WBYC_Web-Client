@@ -101,7 +101,7 @@ class RecipePage extends Component {
 
                         <div className='nav-bar'>
                             { show ? <div onClick={this.close} className='back-drop show'></div> : <div className='back-drop'></div> }
-                            <button onClick={ this.showModal } className="btn btn-openModal">Update Recipe</button>
+                            <button onClick={ this.showModal } className="btn-small btn-openModal">Update Recipe</button>
                         </div>
                         <UpdateModal show={show} close={this.close} state={this.state.recipe}/>
 
