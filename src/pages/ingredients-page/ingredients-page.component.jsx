@@ -4,7 +4,7 @@ import http from "../../services/http.service";
 import IngredientList from "../../components/ingredient-list/ingredient-list.component";
 import Loading from "../../Loading";
 import Pagination from "../../components/pagination/pagination.component";
-import {CreateModal} from "../../components/recipe-create/recipe-create-modal.component"
+import {CreateModal} from '../../components/ingredient-create/ingredient-create-modal.component'
 
 import './ingredients-page.styles.scss'
 
