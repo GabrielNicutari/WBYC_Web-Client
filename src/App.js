@@ -31,7 +31,7 @@ class App extends Component {
                     <Route exact path={"/ingredients"} component={IngredientsPage} />
                     <Route path={"/recipes/:id"} component={RecipePage} />
                 </Switch>
-                <SocialFooter/>
+                {/*<SocialFooter/>*/}
                 <Footer/>
             </div>
         );

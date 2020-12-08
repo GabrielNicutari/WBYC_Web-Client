@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 import './index-page.styles.scss';
 import "fontsource-roboto";
 import SocialFooter from "../../components/social-footer/social-footer.component";
-import Footer from "../../components/footer/footer.component";
 
 class HomePage extends Component {
     constructor(props) {
@@ -60,7 +59,7 @@ class HomePage extends Component {
                 </div>
 
                 <div className='bottomPart'> </div>
-                <Footer/>
+                <SocialFooter/>
             </div>
         );
     }
