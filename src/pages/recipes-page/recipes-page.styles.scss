@@ -17,6 +17,7 @@
       width: 80%;
       display: flex;
       justify-content: flex-end;
+      //max-width: 1600px;
     }
 
     .btn-openModal {
@@ -45,7 +46,7 @@
     box-shadow: 0 0 10px #ddd;
     display: flex;
     flex-wrap: wrap;
-    max-width: 1600px;
+    //max-width: 1600px;
     margin-left: 10%;
     margin-right: 10%;
     justify-content: space-between;
