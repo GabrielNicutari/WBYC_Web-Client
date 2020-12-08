@@ -26,7 +26,7 @@ class HomePage extends Component {
                         <p className='bannerText'>Tailor your weekly menu so you get the most delicious recipes</p>
                         <br/>
                         <p className='bannerText'>and fresh ingredients delivered to your door.</p>
-                        <button className="btn btn-cta">Order now</button>
+                        <button className="btn-large btn-cta">Order now</button>
                     </div>
 
                 </div>

@@ -87,7 +87,7 @@ class IngredientsPage extends Component {
                     <h1 className='title'>INGREDIENTS</h1>
                     <div className='nav-bar'>
                         { show ? <div onClick={this.close} className='back-drop show'/> : <div className='back-drop'/> }
-                        <button onClick={ this.showModal } className="btn btn-openModal">Add Ingredient</button>
+                        <button onClick={ this.showModal } className="btn-large btn-openModal">Add Ingredient</button>
                     </div>
                     <CreateModal show={show} close={this.close}/>
 
@@ -98,7 +98,7 @@ class IngredientsPage extends Component {
                         ((currentPage + 1) * itemsPerPage) : totalItems} of {totalItems} total results for <strong>Ingredients</strong>
                     </span>
 
-                    <button className='btn btn-sort' onClick={this.sortToggle}>
+                    <button className='btn-mini btn-sort' onClick={this.sortToggle}>
                         <span>Sort: {sorting}</span>
                     </button>
 
