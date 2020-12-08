@@ -9,6 +9,7 @@ import UpdateRecipe from "./components/recipe-update/recipe-update.component";
 import RecipesPage from "./pages/recipes-page/recipes-page.component";
 import RecipePage from "./pages/recipe-page/recipe-page.component";
 import Header from "./components/header/header.component";
+import HomePage from "./pages/index-page/index-page.component";
 
 class App extends Component {
     constructor() {
@@ -26,6 +27,7 @@ class App extends Component {
             <div>
                 <Header />
                 <Switch>
+                    <Route exact path={""} component={HomePage} />
                     <Route exact path={"/ingredients"} component={Ingredientlist} />
                     <Route exact path={"/recipes"} component={RecipesPage} />
                     <Route path={"/recipes/:id"} component={RecipePage} />
