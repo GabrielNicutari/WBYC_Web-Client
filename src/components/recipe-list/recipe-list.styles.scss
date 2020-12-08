@@ -4,7 +4,9 @@
   justify-content: space-around;
   width: calc(100% + 1rem);
   margin: 0 auto;
-  max-width: 1600px;
+  //max-width: 1600px;
+  padding-left: 10%;
+  padding-right: 10%;
 
   .preview {
     display: contents;

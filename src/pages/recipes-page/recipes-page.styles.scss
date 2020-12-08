@@ -39,15 +39,17 @@
   }
 
   .recipes-listings {
-    height: 40px;
+    height: 60px;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     box-shadow: 0 0 10px #ddd;
     display: flex;
     flex-wrap: wrap;
     max-width: 1600px;
-    margin: 10px auto 0 auto;
+    margin-left: 10%;
+    margin-right: 10%;
     justify-content: space-between;
+
 
     .results {
       margin: auto 20px;
@@ -56,7 +58,6 @@
     .btn-sort {
       background-color:#FFDD94;
       text-decoration: none;
-      border-radius: 100px;
       border: none;
       text-align: center;
       cursor: pointer;
