@@ -86,7 +86,7 @@ class RecipesPage extends Component {
                     <h1 className='title'>RECIPES</h1>
                     <div className='nav-bar'>
                         { show ? <div onClick={this.close} className='back-drop show'/> : <div className='back-drop'/> }
-                        <button onClick={ this.showModal } className="btn btn-openModal">Create Recipe</button>
+                        <button onClick={ this.showModal } className="btn-large btn-openModal">Create Recipe</button>
                     </div>
                     <CreateModal show={show} close={this.close}/>
 
@@ -97,7 +97,7 @@ class RecipesPage extends Component {
                         ((currentPage + 1) * itemsPerPage) : totalItems} of {totalItems} total results for <strong>Recipes</strong>
                     </span>
 
-                    <button className='btn btn-sort' onClick={this.sortToggle}>
+                    <button className='btn-mini btn-sort' onClick={this.sortToggle}>
                         <span>Sort: {sorting}</span>
                     </button>
 
