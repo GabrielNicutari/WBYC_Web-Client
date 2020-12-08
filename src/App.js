@@ -5,6 +5,9 @@ import { Switch, Route } from 'react-router-dom';
 import Ingredientlist from "./components/ingredient-list/ingredient-list.component";
 import CreateRecipe from "./components/recipe-create/recipe-create.component";
 import UpdateRecipe from "./components/recipe-update/recipe-update.component";
+import Footer from "./components/footer/footer.component";
+import SocialFooter from "./components/social-footer/social-footer.component";
+
 
 import RecipesPage from "./pages/recipes-page/recipes-page.component";
 import RecipePage from "./pages/recipe-page/recipe-page.component";
@@ -31,6 +34,8 @@ class App extends Component {
                     <Route path={"/recipes/:id"} component={RecipePage} />
                     <Route path={"/recipes/create"} component={CreateRecipe}/>
                 </Switch>
+                <Footer/>
+                <SocialFooter/>
             </div>
         );
     }
