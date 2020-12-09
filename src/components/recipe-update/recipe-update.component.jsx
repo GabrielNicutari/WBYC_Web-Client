@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import http from '../../services/http.service';
 import './recipe-update.styles.scss';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
-export default class UpdateRecipe extends Component {
+class UpdateRecipe extends Component {
     constructor(props) {
         super(props);
 
@@ -77,13 +77,16 @@ export default class UpdateRecipe extends Component {
             });
     }
 
-
+    afterSubmission = (event) => {
+        event.preventDefault();
+    }
+    
     render() {
 
         return(
             <div className='container'>
 
-                <form>
+                <form onSubmit={this.afterSubmission}>
                     <div className="field1-2">
                         <div>
                             <label>Name</label><br/>
@@ -163,7 +166,7 @@ export default class UpdateRecipe extends Component {
                         />
                     </div>
 
-                    <button className="btn-small btn-submit" onClick={this.updateRecipe} type="submit">
+                    <button className="btn-small btn-submit" onClick={() => {this.updateRecipe(); this.props.close()}} type="submit">
                         Submit
                     </button>
 
@@ -172,3 +175,5 @@ export default class UpdateRecipe extends Component {
         );
     }
 }
+
+export default withRouter(UpdateRecipe);

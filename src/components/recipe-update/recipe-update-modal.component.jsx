@@ -19,7 +19,7 @@ export const UpdateModal= ({show, close, state}) => {
             <div className="modal-content">
                 <div className="modal-body">
                     <div className="headline">Update selected recipe</div>
-                    <UpdateRecipe state={state}/>
+                    <UpdateRecipe state={state} close={close}/>
                 </div>
                 <div className="modal-footer">
                     <button onClick={close} className="btn-small btn-cancel">Close</button>
