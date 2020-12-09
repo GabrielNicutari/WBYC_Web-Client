@@ -102,27 +102,23 @@ class RecipePage extends Component {
                         {recipe.description}
                     </span>
 
-                            <div className="item">
-
-                                    <p ><FontAwesomeIcon icon={faClock} className="clockIcon" size={"1x"}/>
-                                        Prep time: <span className="highLight2">20 minutes</span>
-                                        Cook time: <span className="highLight2">30 minutes</span>
-                                        Total time: <span className="highLight2">50 minutes</span>
-                                    </p>
-
-
-
+                        <div className="item">
+                                <p ><FontAwesomeIcon icon={faClock} className="clockIcon" size={"1x"}/>
+                                    Prep time: <span className="highLight2">20 minutes</span>
+                                    Cook time: <span className="highLight2">30 minutes</span>
+                                    Total time: <span className="highLight2">50 minutes</span>
+                                </p>
                             </div>
                         </div>
 
                         <div className='nav-bar'>
-                            { showDelete ? <div onClick={this.closeDelete} className='back-drop show'></div> : <div className='back-drop'></div> }
+                            { showDelete ? <div onClick={this.closeDelete} className='back-drop show'/> : <div className='back-drop'/> }
                             <button onClick={ this.showDeleteModal } className="btn-medium btn-openModal">Delete Recipe</button>
                         </div>
                         <DeleteModal showDelete={showDelete} closeDelete={this.closeDelete} state={this.state.recipe}/>
 
                         <div className='nav-bar'>
-                            { show ? <div onClick={this.close} className='back-drop show'></div> : <div className='back-drop'></div> }
+                            { show ? <div onClick={this.close} className='back-drop show'/> : <div className='back-drop'/> }
                             <button onClick={ this.showModal } className="btn-medium btn-openModal btn-updateModal">Update Recipe</button>
                         </div>
                         <UpdateModal show={show} close={this.close} state={this.state.recipe}/>

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import http from '../../services/http.service';
 import './recipe-update.styles.scss';
-import { Redirect } from 'react-router';
+import { withRouter } from 'react-router';
 
 export default class UpdateRecipe extends Component {
     constructor(props) {
@@ -26,8 +26,6 @@ export default class UpdateRecipe extends Component {
         this.setState(this.props.state);
         console.log(this.props.state);
     }
-
-
 
     onChangeName = e => {
         this.setState({name: e.target.value});
@@ -66,7 +64,6 @@ export default class UpdateRecipe extends Component {
     }
 
     updateRecipe = () => {
-        console.log(this.state.id);
 
         http
             .put(
@@ -75,12 +72,10 @@ export default class UpdateRecipe extends Component {
             )
             .then((response) => {
                 console.log(response.data);
-                this.props.history.push("/recipes/recipes/" + this.state.id);
             })
             .catch((e) => {
                 console.log(e);
             });
-
     }
 
 
