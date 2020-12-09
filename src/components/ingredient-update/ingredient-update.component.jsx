@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {withRouter} from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import http from "../../services/http.service";
 import "./ingredient-update.styles.scss";
 
@@ -12,7 +12,7 @@ class UpdateIngredient extends Component {
       name: "",
       pricePerUnit: "",
       imageSrc: "",
-      measurementUnitByMeasurementUnitId: { id: undefined }
+      measurementUnitByMeasurementUnitId: { id: 1 }
     };
   }
 
@@ -43,8 +43,6 @@ class UpdateIngredient extends Component {
   };
 
   updateIngredient = () => {
-    console.log(this.state.id);
-
     http
       .put("/ingredients/update/" + this.state.id, this.state)
       .then((response) => {
@@ -60,7 +58,6 @@ class UpdateIngredient extends Component {
   }
 
   render() {
-    console.log(this.props);
 
     return (
       <div className="container">

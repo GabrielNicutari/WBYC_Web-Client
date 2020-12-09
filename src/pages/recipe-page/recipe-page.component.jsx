@@ -5,9 +5,7 @@ import Loading from "../../Loading";
 import './recipe-page.styles.scss';
 import {UpdateModal} from "../../components/recipe-update/recipe-update-modal.component";
 import {DeleteModal} from "../../components/recipe-delete/recipe-delete-modal.component";
-import {Link} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faInstagram} from "@fortawesome/free-brands-svg-icons";
 import {faClock} from "@fortawesome/free-solid-svg-icons";
 
 class RecipePage extends Component {
@@ -40,9 +38,6 @@ class RecipePage extends Component {
         this.getRecipe(this.props.match.params.id);
     }
 
-    componentDidUpdate() {
-    }
-
     getRecipe(id) {
         this.setState({loading: undefined});
         this.setState({done: undefined});
@@ -56,7 +51,6 @@ class RecipePage extends Component {
                 // this.setState({
                 //     ingredients: response.data.recipeHasIngredientsById  //only if we feel like we need it later
                 // })
-                console.log(response.data);
             })
             .then(() => {
                 this.setState({loading: true});

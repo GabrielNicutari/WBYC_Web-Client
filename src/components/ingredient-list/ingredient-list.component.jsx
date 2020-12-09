@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import IngredientItem from "../ingredient-item/ingredient-item.component";
 
 import "./ingredient-list.styles.scss";
-import {UpdateModal} from "../ingredient-update/ingredient-update-modal.component";
+import { UpdateModal } from "../ingredient-update/ingredient-update-modal.component";
 
 const IngredientList = ({ ingredients }) => {
     const [show, setShow] = useState(false);
@@ -12,8 +12,6 @@ const IngredientList = ({ ingredients }) => {
     const showModal = (fields) => {
         setShow(true);
         setFields(fields);
-
-        console.log("fields:" + fields.name);
     }
 
     const close = () => {

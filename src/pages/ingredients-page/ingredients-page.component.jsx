@@ -37,8 +37,6 @@ class IngredientsPage extends Component {
     http
       .get("ingredients?page=" + currentPage + "&sort=" + sort)
       .then((response) => {
-        console.log(response.data);
-
         this.setState({ totalPages: response.data.totalPages });
         this.setState({ totalItems: response.data.totalItems });
         this.setState({ ingredients: response.data.ingredients });
@@ -80,16 +78,7 @@ class IngredientsPage extends Component {
 
   render() {
 
-    const {
-      ingredients,
-      done,
-      loading,
-      totalItems,
-      currentPage,
-      sorting,
-      itemsPerPage,
-      show,
-    } = this.state;
+    const { ingredients, done, loading, totalItems, currentPage, sorting, itemsPerPage, show} = this.state;
 
     return (
       <div className="ingredients-page">
@@ -137,8 +126,6 @@ class IngredientsPage extends Component {
         ) : (
           <IngredientList show={show} close={this.close} ingredients={ingredients} />
         )}
-
-        {/*<Pagination itemsPerPage={itemsPerPage} totalItems={totalItems} paginate={this.paginate} done={done}/>*/}
       </div>
     );
   }

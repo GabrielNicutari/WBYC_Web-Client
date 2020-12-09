@@ -3,7 +3,7 @@ import "./ingredient-update.styles.scss";
 import UpdateIngredient from "./ingredient-update.component.jsx";
 
 export const UpdateModal = ({ show, close, state }) => {
-  console.log("show: " + show + "close: " + close);
+
   return (
     <div
       className="modal-wrapper"

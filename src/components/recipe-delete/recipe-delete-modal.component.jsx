@@ -3,7 +3,7 @@ import './recipe-delete.styles.scss'
 import DeleteRecipe from "./recipe-delete.component.jsx";
 
 export const DeleteModal= ({showDelete, closeDelete, state}) => {
-    console.log("showDelete: " + showDelete + "closeDelete: " + closeDelete);
+
     return (
         <div className="modal-wrapper"
              style={{

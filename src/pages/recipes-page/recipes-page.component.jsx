@@ -37,8 +37,6 @@ class RecipesPage extends Component {
     http
       .get("recipes?page=" + currentPage + "&sort=" + sort)
       .then((response) => {
-        console.log(response.data);
-
         this.setState({ totalPages: response.data.totalPages });
         this.setState({ totalItems: response.data.totalItems });
         this.setState({ recipes: response.data.recipes });
@@ -136,8 +134,6 @@ class RecipesPage extends Component {
         ) : (
           <RecipeList recipes={recipes} />
         )}
-
-        {/*<Pagination itemsPerPage={itemsPerPage} totalItems={totalItems} paginate={this.paginate} done={done}/>*/}
       </div>
     );
   }

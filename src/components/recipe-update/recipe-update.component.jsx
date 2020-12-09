@@ -24,7 +24,6 @@ export default class UpdateRecipe extends Component {
 
     componentDidMount() {
         this.setState(this.props.state);
-        console.log(this.props.state);
     }
 
     onChangeName = e => {
@@ -71,7 +70,7 @@ export default class UpdateRecipe extends Component {
                 this.state
             )
             .then((response) => {
-                console.log(response.data);
+                this.props.history.go(0);
             })
             .catch((e) => {
                 console.log(e);
@@ -164,7 +163,7 @@ export default class UpdateRecipe extends Component {
                         />
                     </div>
 
-                    <button class="btn-small btn-submit" onClick={this.updateRecipe} type="submit">
+                    <button className="btn-small btn-submit" onClick={this.updateRecipe} type="submit">
                         Submit
                     </button>
 
