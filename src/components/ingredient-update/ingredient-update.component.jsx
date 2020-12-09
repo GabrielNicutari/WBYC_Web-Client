@@ -10,9 +10,9 @@ class UpdateIngredient extends Component {
     this.state = {
       id: null,
       name: "",
-      pricePerUnit: 0.0,
+      pricePerUnit: "",
       imageSrc: "",
-      measurementUnitByMeasurementUnitId: { id: undefined },
+      measurementUnitByMeasurementUnitId: { id: undefined }
     };
   }
 
@@ -39,10 +39,7 @@ class UpdateIngredient extends Component {
   };
 
   onChangeMeasurementUnit = (e) => {
-    this.setState(
-      { measurementUnitByMeasurementUnitId: { id: e.target.value } },
-      () => console.log(this.state)
-    );
+    this.setState({ measurementUnitByMeasurementUnitId: { id: e.target.value }});
   };
 
   updateIngredient = () => {
@@ -87,6 +84,7 @@ class UpdateIngredient extends Component {
               <input
                 type="number"
                 id="pricePerUnit"
+                pattern="[0-9]{1,4}.[0-9]{1,2}"
                 required
                 value={this.state.pricePerUnit}
                 onChange={this.onChangePricePerUnit}
@@ -111,14 +109,14 @@ class UpdateIngredient extends Component {
           </div>
           <div className="field3-4">
             <div>
-              <label>Measurement</label>
+              <label>Measurement Unit</label>
               <br />
               <input
                 type="text"
                 id="measurementUnitByMeasurementUnitId"
                 name="measurementUnitByMeasurementUnitId"
                 required
-                value={this.state.measurementUnitByMeasurementUnitId}
+                value={this.state.measurementUnitByMeasurementUnitId.id}
                 onChange={this.onChangeMeasurementUnit}
               />
             </div>

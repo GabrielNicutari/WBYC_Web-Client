@@ -28,7 +28,7 @@ export default class CreateIngredient extends Component {
     }
 
     onChangeMeasurementUnit = e => {
-        this.setState({measurementUnitByMeasurementUnitId: {id: e.target.value}}, ()=> console.log(this.state))
+        this.setState({measurementUnitByMeasurementUnitId: {id: e.target.value}})
     }
 
 
