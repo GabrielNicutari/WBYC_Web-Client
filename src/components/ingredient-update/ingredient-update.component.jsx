@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
+import {withRouter} from "react-router-dom";
 import http from "../../services/http.service";
 import "./ingredient-update.styles.scss";
-import { Redirect } from "react-router";
 
-export default class UpdateIngredient extends Component {
+class UpdateIngredient extends Component {
   constructor(props) {
     super(props);
 
@@ -18,7 +18,12 @@ export default class UpdateIngredient extends Component {
 
   componentDidMount() {
     this.setState(this.props.state);
-    console.log(this.props.state);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if(this.props !== prevProps) {
+      this.setState(this.props.state);
+    }
   }
 
   onChangeName = (e) => {
@@ -44,20 +49,25 @@ export default class UpdateIngredient extends Component {
     console.log(this.state.id);
 
     http
-      .put("/ingredient/update/" + this.state.id, this.state)
+      .put("/ingredients/update/" + this.state.id, this.state)
       .then((response) => {
-        console.log(response.data);
-        this.props.history.push("/ingredients/ingredients" + this.state.id);
+        this.props.history.go(0);
       })
       .catch((e) => {
         console.log(e);
       });
   };
 
+  afterSubmission = (event) => {
+    event.preventDefault();
+  }
+
   render() {
+    console.log(this.props);
+
     return (
       <div className="container">
-        <form>
+        <form onSubmit={this.afterSubmission}>
           <div className="field1-2">
             <div>
               <label>Name</label>
@@ -75,7 +85,7 @@ export default class UpdateIngredient extends Component {
               <label>Price/Unit</label>
               <br />
               <input
-                type="text"
+                type="number"
                 id="pricePerUnit"
                 required
                 value={this.state.pricePerUnit}
@@ -92,8 +102,10 @@ export default class UpdateIngredient extends Component {
               <input
                 type="text"
                 id="imageSrc"
-                requiered
+                name="imageSrc"
+                required
                 value={this.state.imageSrc}
+                onChange={this.onChangeImageSrc}
               />
             </div>
           </div>
@@ -104,15 +116,17 @@ export default class UpdateIngredient extends Component {
               <input
                 type="text"
                 id="measurementUnitByMeasurementUnitId"
-                requiered
+                name="measurementUnitByMeasurementUnitId"
+                required
                 value={this.state.measurementUnitByMeasurementUnitId}
+                onChange={this.onChangeMeasurementUnit}
               />
             </div>
           </div>
 
           <button
-            class="btn btn-submit"
-            onClick={this.updateRecipe}
+            className="btn-small btn-submit"
+            onClick={() => {this.updateIngredient(); this.props.close()}}
             type="submit"
           >
             Submit
@@ -122,3 +136,5 @@ export default class UpdateIngredient extends Component {
     );
   }
 }
+
+export default withRouter(UpdateIngredient);

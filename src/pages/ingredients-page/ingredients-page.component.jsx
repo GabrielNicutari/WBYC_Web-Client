@@ -79,6 +79,7 @@ class IngredientsPage extends Component {
   showModal = () => this.setState({ show: true });
 
   render() {
+
     const {
       ingredients,
       done,
@@ -134,7 +135,7 @@ class IngredientsPage extends Component {
         {!done ? (
           <Loading loading={loading} />
         ) : (
-          <IngredientList ingredients={ingredients} />
+          <IngredientList show={show} close={this.close} ingredients={ingredients} />
         )}
 
         {/*<Pagination itemsPerPage={itemsPerPage} totalItems={totalItems} paginate={this.paginate} done={done}/>*/}
