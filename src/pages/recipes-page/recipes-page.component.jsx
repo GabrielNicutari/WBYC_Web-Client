@@ -5,6 +5,7 @@ import RecipeList from "../../components/recipe-list/recipe-list.component";
 import Loading from "../../Loading";
 import Pagination from "../../components/pagination/pagination.component";
 import { CreateModal } from "../../components/recipe-create/recipe-create-modal.component";
+import SearchBar from "../../components/search-bar/search-bar.component";
 
 import "./recipes-page.styles.scss";
 
@@ -53,6 +54,10 @@ class RecipesPage extends Component {
       });
   }
 
+  onSearch = () => {
+    http.get("recipes/")
+  }
+
   paginate = (pageNr) => {
     this.setState({ currentPage: pageNr - 1 });
   };
@@ -92,6 +97,9 @@ class RecipesPage extends Component {
       <div className="recipes-page">
         <div className="recipes-header">
           <h1 className="title">RECIPES</h1>
+
+          <SearchBar onSearch={onSearch}/>
+
           <div className="nav-bar">
             {show ? (
               <div onClick={this.close} className="back-drop show" />

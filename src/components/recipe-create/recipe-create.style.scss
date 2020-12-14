@@ -8,7 +8,7 @@ form div {
   color: #292929;
 }
 
-input, textarea {
+label input, textarea {
   border: none;
   border-bottom: #838383 solid 2px;
   outline: none;
@@ -17,7 +17,7 @@ input, textarea {
   transition: border-bottom .1s;
 }
 
-input:hover, textarea:hover {
+label input:hover, textarea:hover {
   transition: border-bottom .1s;
   border-bottom: #fa897b solid 2px;
 }
