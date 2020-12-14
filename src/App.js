@@ -14,6 +14,8 @@ import RecipePage from "./pages/recipe-page/recipe-page.component";
 import Header from "./components/header/header.component";
 import HomePage from "./pages/index-page/index-page.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
+import Checkout from "./pages/checkout-page/checkout-page.component";
+
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from './redux/user/user.actions'
 import { selectCurrentUser } from "./redux/user/user.selector";
@@ -65,6 +67,7 @@ class App extends Component {
           <Route exact path="/signin"
                  render={() => this.props.currentUser ? (<Redirect to="/" />) : (<SignInAndSignUpPage />)}
           />
+          <Route exact path="/checkout" component={Checkout}/>
         </Switch>
         <Footer />
       </div>
