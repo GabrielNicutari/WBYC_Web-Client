@@ -7,6 +7,11 @@
   display: flex;
   flex-direction: column;
 
+  .group .form-input {
+    background: transparent;
+    color: #111111;
+  }
+
   .title {
     margin-top: 10px 0;
     margin-bottom: 15px;

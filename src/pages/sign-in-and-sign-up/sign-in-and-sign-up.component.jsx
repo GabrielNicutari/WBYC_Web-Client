@@ -6,9 +6,11 @@ import SignUp from "../../components/sing-up/sing-up.component";
 import "./sign-in-and-sign-up.styles.scss";
 
 const SignInAndSignUpPage = () => (
-  <div className="sign-in-and-sign-up">
-    <SignIn />
-    <SignUp />
+  <div className="login-image">
+    <div className="sign-in-and-sign-up">
+      <SignIn />
+      <SignUp />
+    </div>
   </div>
 );
 
