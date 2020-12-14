@@ -1,9 +1,14 @@
+@mixin font {
+  font-family: Roboto;
+}
+
 .sign-up {
   display: flex;
   flex-direction: column;
   width: 450px;
 
-  .title {
+  .sub-title {
     margin: 10px 0;
+    font-size: 15px;
   }
 }

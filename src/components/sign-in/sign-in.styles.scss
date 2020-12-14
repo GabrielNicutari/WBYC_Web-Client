@@ -1,10 +1,21 @@
+@mixin font {
+  font-family: Roboto;
+}
+
 .sign-in {
   width: 450px;
   display: flex;
   flex-direction: column;
 
   .title {
-    margin: 10px 0;
+    margin-top: 10px 0;
+    margin-bottom: 15px;
+    font-size: 35px;
+  }
+
+  .sub-title {
+    margin: 5px;
+    font-size: 15px;
   }
 
   .buttons {
