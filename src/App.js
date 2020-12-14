@@ -5,6 +5,7 @@ import "fontsource-roboto";
 
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import Footer from "./components/footer/footer.component";
 import IngredientsPage from "./pages/ingredients-page/ingredients-page.component";
@@ -15,6 +16,7 @@ import HomePage from "./pages/index-page/index-page.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from './redux/user/user.actions'
+import { selectCurrentUser } from "./redux/user/user.selector";
 
 class App extends Component {
   constructor() {
@@ -70,8 +72,8 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser
 })
 
 const mapDispatchToProps = dispatch => ({
