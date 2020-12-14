@@ -10,8 +10,8 @@ const RecipeList = (props) => (
             <div className='preview'>
                 {
                     props.recipes
-                        .map(({id, ...otherRecipeProps}) => (
-                            <RecipeItem key={id} id={id} {...otherRecipeProps}/>
+                        .map((item) => (
+                            <RecipeItem key={item.id} item={item}/>
                         ))
                 }
             </div>
