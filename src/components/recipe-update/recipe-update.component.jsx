@@ -80,7 +80,7 @@ class UpdateRecipe extends Component {
     afterSubmission = (event) => {
         event.preventDefault();
     }
-    
+
     render() {
 
         return(

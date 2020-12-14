@@ -50,8 +50,9 @@
     @include font();
     position: relative;
     top: 15%;
-    padding: 0.5rem 1.8rem;
+    padding: 1rem 1.8rem;
     color: black;
+    background-color: white;
     border: none;
     outline: none;
     cursor: pointer;
@@ -61,5 +62,9 @@
     align-items: center;
     vertical-align: center;
 
+    &:hover {
+      background-color: #FEC13E;
+      transition: all 0.3s ease;
+    }
   }
 }
