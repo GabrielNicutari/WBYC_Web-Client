@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import "./App.scss";
 import "fontsource-roboto";
 
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Footer from "./components/footer/footer.component";
@@ -60,7 +60,9 @@ class App extends Component {
           <Route exact path={"/recipes"} component={RecipesPage} />
           <Route exact path={"/ingredients"} component={IngredientsPage} />
           <Route path={"/recipes/:id"} component={RecipePage} />
-          <Route path="/signin" component={SignInAndSignUpPage} />
+          <Route exact path="/signin"
+                 render={() => this.props.currentUser ? (<Redirect to="/" />) : (<SignInAndSignUpPage />)}
+          />
         </Switch>
         <Footer />
       </div>
@@ -68,8 +70,12 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser
+})
+
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
 })
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
