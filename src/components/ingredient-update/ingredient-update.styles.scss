@@ -4,7 +4,7 @@ form div {
   color: #292929;
 }
 
-label input,
+input,
 textarea {
   border: none;
   border-bottom: #838383 solid 2px;
@@ -17,13 +17,13 @@ textarea {
   width: 100%;
 }
 
-label input:focus,
-label textarea:focus {
+input:focus,
+textarea:focus {
   transition: border-bottom 0.1s;
   border-bottom: #fec13e solid 2px;
 }
 
-label input:hover,
+input:hover,
 textarea:hover {
   transition: border-bottom 0.1s;
   border-bottom: #fec13e solid 2px;

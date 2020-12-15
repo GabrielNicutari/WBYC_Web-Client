@@ -79,9 +79,8 @@ class UpdateIngredient extends Component {
               <label>Price/Unit</label>
               <br />
               <input
-                type="text"
+                type="number"
                 id="pricePerUnit"
-                placeholder='3.9'
                 pattern="[0-9]{1,4}.[0-9]{1,2}"
                 required
                 value={this.state.pricePerUnit}
@@ -110,7 +109,7 @@ class UpdateIngredient extends Component {
               <label>Measurement Unit</label>
               <br />
               <input
-                type="text" pattern="[0-9]{1-4}"
+                type="text"
                 id="measurementUnitByMeasurementUnitId"
                 name="measurementUnitByMeasurementUnitId"
                 required
@@ -123,6 +122,7 @@ class UpdateIngredient extends Component {
           <button
             className="btn-small btn-submit"
             onClick={() => {this.updateIngredient(); this.props.close()}}
+            type="submit"
           >
             Submit
           </button>

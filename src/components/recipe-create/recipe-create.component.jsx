@@ -126,7 +126,7 @@ export default class CreateRecipe extends Component {
                         <div>
                             <label>Prep Time: </label><br/>
                             <input
-                                type="text" pattern="[0-9]{1,4}" required
+                                type="number" min={0} step={1} required
                                 value={this.state.prepTime} onChange={this.onChangePrepTime}
                                 name="prepTime" id="prepTime"
                             />
@@ -175,7 +175,7 @@ export default class CreateRecipe extends Component {
                         />
                     </div>
 
-                    <button className="btn-small btn-submit" onClick={this.saveRecipe} type="submit">
+                    <button className="btn-small btn-submit" onClick={this.saveRecipe}>
                         Submit
                     </button>
 

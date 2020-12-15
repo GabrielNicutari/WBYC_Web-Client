@@ -145,7 +145,7 @@ class UpdateRecipe extends Component {
                     <div className="instructionse">
                         <label>Instructions: </label><br/>
                         <textarea
-                            placeholder="Recipe Instructions" rows={15} cols={50}
+                            placeholder="Recipe Instructions" rows={15  } cols={50}
                             id="instructions" name="instructions" required
                             value={this.state.instructions} onChange={this.onChangeInstructions}
 
