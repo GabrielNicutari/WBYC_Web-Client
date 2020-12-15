@@ -9,10 +9,17 @@ const RecipeList = (props) => (
         <div className='recipe-list'>
             <div className='preview'>
                 {
-                    props.recipes
-                        .map((item) => (
-                            <RecipeItem key={item.id} item={item}/>
-                        ))
+                    (props.size > 0) ?
+                        (
+                            props.recipes
+                                .map(({id, ...otherRecipeProps}) => (
+                                    <RecipeItem key={id} id={id} {...otherRecipeProps}/>
+                                ))
+                        ) :
+                        (
+                            <div>nothing</div>
+                        )
+
                 }
             </div>
         </div>

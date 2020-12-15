@@ -5,6 +5,7 @@ import RecipeList from "../../components/recipe-list/recipe-list.component";
 import Loading from "../../Loading";
 import Pagination from "../../components/pagination/pagination.component";
 import { CreateModal } from "../../components/recipe-create/recipe-create-modal.component";
+import SearchBar from "../../components/search-bar/search-bar.component";
 
 import "./recipes-page.styles.scss";
 
@@ -19,6 +20,7 @@ class RecipesPage extends Component {
       totalPages: null,
       totalItems: null,
       sorting: "id,asc",
+      key: "",
 
       loading: undefined,
       done: undefined,
@@ -27,15 +29,15 @@ class RecipesPage extends Component {
   }
 
   componentDidMount() {
-    this.fetchAll(this.state.currentPage, this.state.sorting);
+    this.fetchAll(this.state.currentPage, this.state.sorting, this.state.key);
   }
 
-  fetchAll(currentPage, sort) {
+  fetchAll(currentPage, sort, key) {
     this.setState({ loading: undefined });
     this.setState({ done: undefined });
 
     http
-      .get("recipes?page=" + currentPage + "&sort=" + sort)
+      .get("recipes?page=" + currentPage + "&sort=" + sort + "&key=" + key)
       .then((response) => {
         this.setState({ totalPages: response.data.totalPages });
         this.setState({ totalItems: response.data.totalItems });
@@ -53,6 +55,10 @@ class RecipesPage extends Component {
       });
   }
 
+  onSearch = (key) => {
+    this.setState({key: key});
+  }
+
   paginate = (pageNr) => {
     this.setState({ currentPage: pageNr - 1 });
   };
@@ -66,9 +72,10 @@ class RecipesPage extends Component {
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (
       this.state.sorting !== prevState.sorting ||
-      this.state.currentPage !== prevState.currentPage
+      this.state.currentPage !== prevState.currentPage ||
+      this.state.key !== prevState.key
     ) {
-      this.fetchAll(this.state.currentPage, this.state.sorting);
+      this.fetchAll(this.state.currentPage, this.state.sorting, this.state.key);
     }
   }
 
@@ -85,13 +92,18 @@ class RecipesPage extends Component {
       currentPage,
       sorting,
       itemsPerPage,
-      show,
+      show
     } = this.state;
 
+
+    console.log(this.state);
     return (
       <div className="recipes-page">
         <div className="recipes-header">
           <h1 className="title">RECIPES</h1>
+
+          <SearchBar onSearch={this.onSearch}/>
+
           <div className="nav-bar">
             {show ? (
               <div onClick={this.close} className="back-drop show" />
@@ -132,7 +144,7 @@ class RecipesPage extends Component {
         {!done ? (
           <Loading loading={loading} />
         ) : (
-          <RecipeList recipes={recipes} />
+          <RecipeList recipes={recipes} size={totalItems}/>
         )}
       </div>
     );
