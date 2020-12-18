@@ -7,6 +7,7 @@ import Pagination from "../../components/pagination/pagination.component";
 import { CreateModal } from "../../components/ingredient-create/ingredient-create-modal.component";
 import "fontsource-roboto";
 import "./ingredients-page.styles.scss";
+import SearchBar from "../../components/search-bar/search-bar.component";
 
 class IngredientsPage extends Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class IngredientsPage extends Component {
       totalPages: null,
       totalItems: null,
       sorting: "id,asc",
+      key: "",
 
       loading: undefined,
       done: undefined,
@@ -27,15 +29,15 @@ class IngredientsPage extends Component {
   }
 
   componentDidMount() {
-    this.fetchAll(this.state.currentPage, this.state.sorting);
+    this.fetchAll(this.state.currentPage, this.state.sorting, this.state.key);
   }
 
-  fetchAll(currentPage, sort) {
+  fetchAll(currentPage, sort, key) {
     this.setState({ loading: undefined });
     this.setState({ done: undefined });
 
     http
-      .get("ingredients?page=" + currentPage + "&sort=" + sort)
+      .get("ingredients?page=" + currentPage + "&sort=" + sort + "&key=" + key)
       .then((response) => {
         this.setState({ totalPages: response.data.totalPages });
         this.setState({ totalItems: response.data.totalItems });
@@ -53,6 +55,10 @@ class IngredientsPage extends Component {
       });
   }
 
+  onSearch = (key) => {
+    this.setState({key: key});
+  }
+
   paginate = (pageNr) => {
     this.setState({ currentPage: pageNr - 1 });
   };
@@ -66,9 +72,10 @@ class IngredientsPage extends Component {
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (
       this.state.sorting !== prevState.sorting ||
-      this.state.currentPage !== prevState.currentPage
+      this.state.currentPage !== prevState.currentPage ||
+      this.state.key !== prevState.key
     ) {
-      this.fetchAll(this.state.currentPage, this.state.sorting);
+      this.fetchAll(this.state.currentPage, this.state.sorting, this.state.key);
     }
   }
 
@@ -84,6 +91,9 @@ class IngredientsPage extends Component {
       <div className="ingredients-page">
         <div className="ingredients-header">
           <h1 className="title">INGREDIENTS</h1>
+
+          <SearchBar onSearch={this.onSearch}/>
+
           <div className="nav-bar">
             {show ? (
               <div onClick={this.close} className="back-drop show" />
@@ -124,7 +134,7 @@ class IngredientsPage extends Component {
         {!done ? (
           <Loading loading={loading} />
         ) : (
-          <IngredientList show={show} close={this.close} ingredients={ingredients} />
+          <IngredientList show={show} close={this.close} ingredients={ingredients} size={totalItems}/>
         )}
       </div>
     );

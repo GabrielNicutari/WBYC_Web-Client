@@ -23,7 +23,7 @@ function SearchBar(props) {
             <input
                 className="search-bar-input"
                 type="text"
-                placeholder="Search recipe (by name, author)"
+                placeholder="Search"
                 onChange={handleInput}
                 onKeyPress={handleEnterKeyPressed}
                 value={searchText}

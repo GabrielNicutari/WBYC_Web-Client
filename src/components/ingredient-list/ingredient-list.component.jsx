@@ -5,7 +5,7 @@ import IngredientItem from "../ingredient-item/ingredient-item.component";
 import "./ingredient-list.styles.scss";
 import { UpdateModal } from "../ingredient-update/ingredient-update-modal.component";
 
-const IngredientList = ({ ingredients }) => {
+const IngredientList = (props) => {
     const [show, setShow] = useState(false);
     const [fields, setFields] = useState(null);
 
@@ -22,9 +22,17 @@ const IngredientList = ({ ingredients }) => {
         <div>
             <div className="ingredient-list">
                 <div className="preview">
-                    {ingredients.map(({ id, ...otherIngredientProps }) => (
-                        <IngredientItem key={id} id={id} show={show} close={close} {...otherIngredientProps} customClickEvent={showModal}/>
-                    ))}
+                    {
+                        (props.size > 0) ?
+                            (
+                                props.ingredients.map(({ id, ...otherIngredientProps }) => (
+                                    <IngredientItem key={id} id={id} show={show} close={close} {...otherIngredientProps} customClickEvent={showModal}/>
+                            ))
+                            ) :
+                            (
+                                <div>no element found</div>
+                            )
+                    }
                     <div>
                         {show ? (
                             <div onClick={close} className="back-drop show"/>
