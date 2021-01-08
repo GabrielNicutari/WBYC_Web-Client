@@ -12,8 +12,8 @@ const RecipeList = (props) => (
                     (props.size > 0) ?
                         (
                             props.recipes
-                                .map(({id, ...otherRecipeProps}) => (
-                                    <RecipeItem key={id} id={id} {...otherRecipeProps}/>
+                                .map((item) => (
+                                    <RecipeItem key={item.id} item={item}/>
                                 ))
                         ) :
                         (
