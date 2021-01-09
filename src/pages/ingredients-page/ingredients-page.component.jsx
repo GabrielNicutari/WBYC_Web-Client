@@ -69,6 +69,10 @@ class IngredientsPage extends Component {
       : this.setState({ sorting: "id,asc" });
   };
 
+  onChangeSort = (e) => {
+    this.setState({sorting: e.target.value})
+  }
+
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (
       this.state.sorting !== prevState.sorting ||
@@ -119,9 +123,16 @@ class IngredientsPage extends Component {
             of {totalItems} total results for <strong>Ingredients</strong>
           </span>
 
-          <button className="btn-mini btn-sort" onClick={this.sortToggle}>
-            <span>Sort: {sorting}</span>
-          </button>
+          {/*<button className="btn-mini btn-sort" onClick={this.sortToggle}>*/}
+          {/*  <span>Sort: {sorting}</span>*/}
+          {/*</button>*/}
+
+          <select className="btn-mini btn-sort" onChange={this.onChangeSort} name="sorting">
+            <option value="id,asc">ID, Asc</option>
+            <option value="id,desc">ID, Desc</option>
+            <option value="name,asc">Name, Asc</option>
+            <option value="name,desc">Name, Desc</option>
+          </select>
         </div>
 
         <Pagination
