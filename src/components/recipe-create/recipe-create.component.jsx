@@ -7,7 +7,6 @@ export default class CreateRecipe extends Component {
         super(props);
 
         this.state = {
-            id: null,
             name: "",
             description: "",
             author: "",
@@ -17,47 +16,65 @@ export default class CreateRecipe extends Component {
             instructions: "",
             iconSrc: "",
             imageSrc: "",
-            ingredients: []
+            price: 0,
+
+            unitSize: 0,
+                // recipesByRecipeId: "",
+            ingredientsByIngredientId: {id: null}
+
         };
     }
 
     onChangeName = e => {
-        this.setState({name: e.target.value});
+        this.setState({name: e.target.value} );
     }
 
    onChangeDescription = e => {
-        this.setState({description: e.target.value});
+        this.setState({description: e.target.value} );
    }
 
     onChangeAuthor = e => {
-        this.setState({author: e.target.value})
+        this.setState({author: e.target.value} )
     }
 
     onChangePrepTime = e => {
-        this.setState({prepTime: e.target.value})
+        this.setState({prepTime: e.target.value} )
     }
 
     onChangeCookTime = e => {
-        this.setState({cookTime: e.target.value})
+        this.setState({cookTime: e.target.value} )
     }
 
     onChangePortions = e => {
-        this.setState({portions: e.target.value})
+        this.setState({portions: e.target.value} )
     }
 
     onChangeInstructions = e => {
-        this.setState({instructions: e.target.value})
+        this.setState({instructions: e.target.value} )
     }
 
     onChangeIconSrc =  e => {
-        this.setState({iconSrc: e.target.value})
+        this.setState({iconSrc: e.target.value} )
     }
 
     onChangeImageSrc = e => {
         this.setState({imageSrc: e.target.value})
     }
 
-    saveRecipe = () => {
+    onChangePrice = e => {
+        this.setState({price: e.target.value} )
+    }
+
+    onChangeUnitSize = e => {
+        this.setState({unitSize: e.target.value} )
+    }
+
+    onChangeIngredientsByIngredientId = e => {
+        this.setState({ingredientsByIngredientId: {id: e.target.value} } )
+    }
+
+    saveRecipe = (event) => {
+        event.preventDefault();
 
         let newRecipe = {
             name: this.state.name,
@@ -68,12 +85,22 @@ export default class CreateRecipe extends Component {
             portions: this.state.portions,
             instructions: this.state.instructions,
             iconSrc: this.state.iconSrc,
-            imageSrc: this.state.imageSrc
+            imageSrc: this.state.imageSrc,
+            price: this.state.price,
+
+        }
+
+        console.log(newRecipe);
+
+        let newRecipeHasIngredients = {
+            unitSize: this.state.unitSize,
+            ingredientsByIngredientId: this.state.ingredientsByIngredientId.id
         }
 
         http.post("/recipes/create", newRecipe)
             .then(r => {
                 this.setState({
+                    id: r.data.id,
                     name: r.data.name,
                     description: r.data.description,
                     author: r.data.author,
@@ -82,8 +109,10 @@ export default class CreateRecipe extends Component {
                     portions: r.data.portions,
                     instructions: r.data.instructions,
                     iconSrc: r.data.iconSrc,
-                    imageSrc: r.data.imageSrc
+                    imageSrc: r.data.imageSrc,
+                    price: r.data.price
                 });
+                console.log(r.data.id);
             })
             .catch(e => {
                 console.log(e);
@@ -92,10 +121,13 @@ export default class CreateRecipe extends Component {
     }
 
     render() {
+
+        console.log(this.state);
+
         return(
             <div className='container'>
 
-                <form>
+                <form onSubmit={this.saveRecipe}>
                     <div className="field1-2">
                         <div>
                             <label>Name</label><br/>
@@ -175,7 +207,42 @@ export default class CreateRecipe extends Component {
                         />
                     </div>
 
-                    <button className="btn-small btn-submit" onClick={this.saveRecipe} type="submit">
+                    <div className="price">
+                        <label>Price:</label><br/>
+                        <input
+                            type="number" id="price" name="price"
+                            value={this.state.price} onChange={this.onChangePrice}
+                        />
+                    </div>
+
+
+                    <div>
+                        <label>Ingredient Size: </label><br/>
+                        <input
+                            type="number" id="unitSize" name="unitSize" required
+                            value={this.state.unitSize} onChange={this.onChangeUnitSize}
+                        />
+                    </div>
+
+                    <div>
+                        <label>Ingredient: </label>
+                        <select required id="ingredientsByIngredientId" name="ingredientsByIngredientId"
+                                onChange={this.onChangeIngredientsByIngredientId}
+                        >
+                            {
+                                <option value="" selected disabled hidden> Select..</option>
+                            }
+                            {
+                                this.props.ingredients.map(item => (
+                                    <option key={item.id} value={item.id}>
+                                        {item.name}
+                                    </option>
+                                ))
+                            }
+                        </select>
+                    </div>
+
+                    <button className="btn-small btn-submit"  type="submit">
                         Submit
                     </button>
 

@@ -2,7 +2,7 @@ import React from 'react'
 import './recipe-create-modal.styles.scss'
 import CreateRecipe from './recipe-create.component.jsx'
 
-export const CreateModal= ({show, close}) => {
+export const CreateModal= ({show, close, ingredients}) => {
     return (
         <div className="modal-wrapper"
              style={{
@@ -20,7 +20,7 @@ export const CreateModal= ({show, close}) => {
                           alt="Food"
                 />
                 </div>
-                <CreateRecipe/>
+                <CreateRecipe ingredients={ingredients}/>
                 <div className="modal-footer">
                     <button onClick={close} className="btn-small btn-cancel">Close</button>
                 </div>

@@ -25,6 +25,7 @@ class RecipesPage extends Component {
       loading: undefined,
       done: undefined,
       show: false,
+      ingredients:[]
     };
   }
 
@@ -36,14 +37,25 @@ class RecipesPage extends Component {
     this.setState({ loading: undefined });
     this.setState({ done: undefined });
 
+
+    // if(key != null || !key.equals("") ) {
+    //   currentPage=0;
+    // }
     http
-      .get("recipes?page=" + currentPage + "&sort=" + sort + "&key=" + key)
-      .then((response) => {
-        this.setState({ totalPages: response.data.totalPages });
-        this.setState({ totalItems: response.data.totalItems });
-        this.setState({ recipes: response.data.recipes });
-        this.setState({ itemsPerPage: response.data.size });
-      })
+      .all( [
+            http.get("ingredients/getAll"),
+            http.get("recipes?page=" + currentPage + "&sort=" + sort + "&key=" + key)
+          ]
+      )
+      .then(
+          http.spread((...responses) => {
+            this.setState({ingredients: responses[0].data})
+            this.setState({ totalPages: responses[1].data.totalPages });
+            this.setState({ totalItems: responses[1].data.totalItems });
+            this.setState({ recipes: responses[1].data.recipes });
+            this.setState({ itemsPerPage: responses[1].data.size });
+          })
+      )
       .then(() => {
         this.setState({ loading: true });
         setTimeout(() => {
@@ -96,11 +108,10 @@ class RecipesPage extends Component {
       currentPage,
       sorting,
       itemsPerPage,
-      show
+      show,
+      ingredients
     } = this.state;
 
-
-    console.log(this.state);
     return (
       <div className="recipes-page">
         <div className="recipes-header">
@@ -121,7 +132,7 @@ class RecipesPage extends Component {
               Create Recipe
             </button>
           </div>
-          <CreateModal show={show} close={this.close} />
+          <CreateModal show={show} close={this.close} ingredients={ingredients}/>
         </div>
 
         <div className="recipes-listings">
