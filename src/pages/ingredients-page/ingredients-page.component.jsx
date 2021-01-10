@@ -56,6 +56,7 @@ class IngredientsPage extends Component {
   }
 
   onSearch = (key) => {
+    this.setState({currentPage: 0});
     this.setState({key: key});
   }
 

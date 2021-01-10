@@ -56,6 +56,7 @@ class RecipesPage extends Component {
   }
 
   onSearch = (key) => {
+    this.setState({currentPage: 0});
     this.setState({key: key});
   }
 
@@ -99,8 +100,6 @@ class RecipesPage extends Component {
       show
     } = this.state;
 
-
-    console.log(this.state);
     return (
       <div className="recipes-page">
         <div className="recipes-header">

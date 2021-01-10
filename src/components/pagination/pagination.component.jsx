@@ -22,10 +22,19 @@ class Pagination extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
+        const slider = this.sliderRef.current;
         if(prevProps.done !== this.props.done) {
-            const container = this.containerRef.current
+            const container = this.containerRef.current;
             container.className += " active";
+            slider.style.opacity = 1;
         }
+        if(prevProps.totalItems !== this.props.totalItems) {
+            this.setState({sliderPosition: 6});
+        }
+        if(this.props.totalItems === undefined) {
+            slider.style.opacity = 0;
+        }
+        console.log(this.props.totalItems);
     }
 
     handleClick = (pageNr, position) => {
@@ -33,7 +42,6 @@ class Pagination extends Component {
 
         this.setState({sliderPosition: position});
     }
-
 
     render() {
         const pageNumbers = [];
