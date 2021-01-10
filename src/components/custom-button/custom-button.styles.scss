@@ -6,9 +6,12 @@
   line-height: 50px;
   padding: 0 35px 0 35px;
   font-size: 15px;
-  background-color: black;
-  color: white;
-  text-transform: uppercase;
+  background: linear-gradient(
+    273.91deg,
+    #ffdd94 1.04%,
+    rgba(255, 230, 176, 0.8) 98.54%
+  );
+  color: black;
   font-weight: bolder;
   border: none;
   cursor: pointer;
@@ -16,9 +19,8 @@
   justify-content: center;
 
   &:hover {
-    background-color: white;
+    background: #fec13e;
     color: black;
-    border: 1px solid black;
   }
 
   &.google-sign-in {
@@ -29,7 +31,6 @@
       background-color: #357ae8;
       border: none;
     }
-
   }
 
   &.inverted {

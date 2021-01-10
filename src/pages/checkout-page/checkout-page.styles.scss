@@ -7,11 +7,11 @@
   margin: 50px auto 0;
 
   .checkout-header {
-    width: 100%;
+    width: 150%;
     padding: 10px 0;
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid darkgrey;
+    border-bottom: 1px solid black;
 
     .header-block {
       text-transform: capitalize;
@@ -25,6 +25,7 @@
 
   .total {
     margin-top: 30px;
+    margin-bottom: 30px;
     margin-left: auto;
     font-size: 36px;
   }
