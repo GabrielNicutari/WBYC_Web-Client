@@ -7,6 +7,7 @@ export default class CreateRecipe extends Component {
         super(props);
 
         this.state = {
+            id: null,
             name: "",
             description: "",
             author: "",
@@ -19,7 +20,7 @@ export default class CreateRecipe extends Component {
             price: 0,
 
             unitSize: 0,
-                // recipesByRecipeId: "",
+            // recipesByRecipeId: {id: ""},
             ingredientsByIngredientId: {id: null}
 
         };
@@ -73,8 +74,8 @@ export default class CreateRecipe extends Component {
         this.setState({ingredientsByIngredientId: {id: e.target.value} } )
     }
 
-    saveRecipe = (event) => {
-        event.preventDefault();
+    async saveRecipe() {
+        // event.preventDefault();
 
         let newRecipe = {
             name: this.state.name,
@@ -87,42 +88,61 @@ export default class CreateRecipe extends Component {
             iconSrc: this.state.iconSrc,
             imageSrc: this.state.imageSrc,
             price: this.state.price,
-
         }
 
-        console.log(newRecipe);
+        const request = await http.post("/recipes/create", newRecipe);
+        console.log("Request: " + request.data);
 
-        let newRecipeHasIngredients = {
-            unitSize: this.state.unitSize,
-            ingredientsByIngredientId: this.state.ingredientsByIngredientId.id
-        }
+        // http
+        //     .post("/recipes/create", newRecipe)
+        //     .then(r => {
+        //         this.setState({
+        //             id: r.data.id,
+        //             name: r.data.name,
+        //             description: r.data.description,
+        //             author: r.data.author,
+        //             prepTime: r.data.prepTime,
+        //             cookTime: r.data.cookTime,
+        //             portions: r.data.portions,
+        //             instructions: r.data.instructions,
+        //             iconSrc: r.data.iconSrc,
+        //             imageSrc: r.data.imageSrc,
+        //             price: r.data.price
+        //         });
+        //         console.log("dataID: " + r.data.id);
+        //     })
+        //     .catch(e => {
+        //         console.log(e);
+        //     })
 
-        http.post("/recipes/create", newRecipe)
-            .then(r => {
-                this.setState({
-                    id: r.data.id,
-                    name: r.data.name,
-                    description: r.data.description,
-                    author: r.data.author,
-                    prepTime: r.data.prepTime,
-                    cookTime: r.data.cookTime,
-                    portions: r.data.portions,
-                    instructions: r.data.instructions,
-                    iconSrc: r.data.iconSrc,
-                    imageSrc: r.data.imageSrc,
-                    price: r.data.price
-                });
-                console.log(r.data.id);
-            })
-            .catch(e => {
-                console.log(e);
-            })
+        // console.log("Id: " + this.state.id);
+        // console.log("Name: " + this.state.name);
+
+        // let newRecipeHasIngredients = {
+        //     unitSize: this.state.unitSize,
+        //     recipesByRecipeId: {id: 137},
+        //     ingredientsByIngredientId: {id: this.state.ingredientsByIngredientId.id}
+        // }
+        //
+        // console.log("newRecipeHasIngredients: " + newRecipeHasIngredients.recipesByRecipeId.id);
+
+        // http
+        //     .post("/recipes/insertIntoRecipeHasIngredients", newRecipeHasIngredients)
+        //     .then(r => {
+        //         this.setState({
+        //             unitSize: r.data.unitSize,
+        //             ingredientsByIngredientId: {id: r.data.ingredientsByIngredientId}
+        //         });
+        //     })
+        //     .catch(e => {
+        //         console.log(e);
+        //     })
 
     }
 
     render() {
 
-        console.log(this.state);
+        // console.log(this.state);
 
         return(
             <div className='container'>

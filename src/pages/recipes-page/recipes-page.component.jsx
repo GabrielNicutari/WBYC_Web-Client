@@ -34,6 +34,7 @@ class RecipesPage extends Component {
   }
 
   fetchAll(currentPage, sort, key) {
+
     this.setState({ loading: undefined });
     this.setState({ done: undefined });
 

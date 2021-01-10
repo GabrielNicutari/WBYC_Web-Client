@@ -75,6 +75,7 @@ class UpdateRecipe extends Component {
             .catch((e) => {
                 console.log(e);
             });
+
     }
 
     afterSubmission = (event) => {
