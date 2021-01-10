@@ -1,0 +1,9 @@
+.checkout-button {
+  margin-bottom: 20px;
+  transition: ease 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+    transition: ease 0.2s;
+  }
+}
