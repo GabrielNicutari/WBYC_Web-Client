@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import IngredientItem from "../ingredient-item/ingredient-item.component";
 
 import "./ingredient-list.styles.scss";
+import nothingWasFound from '../../assets/nothing-found.png';
+
 import { UpdateModal } from "../ingredient-update/ingredient-update-modal.component";
 
 const IngredientList = (props) => {
@@ -30,7 +32,11 @@ const IngredientList = (props) => {
                             ))
                             ) :
                             (
-                                <div>no element found</div>
+                                <div className="image-container">
+                                    <img src={nothingWasFound} className="image" alt="nothing" />
+                                    <h1 className="text">Nothing Was Found</h1>
+                                </div>
+
                             )
                     }
                     <div>

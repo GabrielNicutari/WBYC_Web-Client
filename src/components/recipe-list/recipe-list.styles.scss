@@ -12,3 +12,22 @@
     justify-content: space-between;
   }
 }
+
+.image-container {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 500px;
+
+  .image {
+    display: inline-block;
+    width: 24vw;
+  }
+
+  .text {
+    position: absolute;
+    bottom: 20px;
+  }
+}

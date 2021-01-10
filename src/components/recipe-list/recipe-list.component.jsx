@@ -3,6 +3,7 @@ import React from 'react';
 import RecipeItem from "../recipe-item/recipe-item.component";
 
 import './recipe-list.styles.scss';
+import nothingWasFound from "../../assets/nothing-found.png";
 
 const RecipeList = (props) => (
     <div>
@@ -17,7 +18,10 @@ const RecipeList = (props) => (
                                 ))
                         ) :
                         (
-                            <div>nothing</div>
+                            <div className="image-container">
+                                <img src={nothingWasFound} className="image" alt="nothing" />
+                                <h1 className="text">Nothing Was Found</h1>
+                            </div>
                         )
 
                 }
