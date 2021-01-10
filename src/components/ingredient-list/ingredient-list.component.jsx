@@ -32,7 +32,7 @@ const IngredientList = (props) => {
                             ))
                             ) :
                             (
-                                <div className="image-container">
+                                <div className="checkout-image-container">
                                     <img src={nothingWasFound} className="image" alt="nothing" />
                                     <h1 className="text">Nothing Was Found</h1>
                                 </div>
