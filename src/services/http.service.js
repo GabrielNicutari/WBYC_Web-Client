@@ -1,7 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-axios.defaults.baseURL = "http://wbycserver-env.eba-rxcra2nh.us-east-1.elasticbeanstalk.com";
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 axios.interceptors.response.use(null, (error) => {
     console.log("interceptor called");
@@ -21,5 +21,7 @@ export default {
     get: axios.get,
     delete: axios.delete,
     post: axios.post,
-    put: axios.put
+    put: axios.put,
+    all: axios.all,
+    spread: axios.spread
 };
